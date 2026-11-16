@@ -49,4 +49,4 @@ npm run preview    # 查看 dist/ 产物
 
 当前站点不读取或写入旧进度数据；浏览器中已有的历史键原样保留。动态效果遵循系统的减少动态效果设置。
 
-[架构说明](docs/architecture.md)、[内容大纲](docs/outline.md)与[实施记录](docs/migration.md)记录当前结构、内容规划与验证情况。所有数字均为简化示例，机制情景明确条件与时滞，不提供虚构的精确预测。
+内容规划见[基础大纲](docs/outline.md)与[投资大纲](docs/outline-investing.md)；[架构说明](docs/architecture.md)与[实施记录](docs/migration.md)记录当前结构与验证情况。所有数字均为简化示例，机制情景明确条件与时滞，不提供虚构的精确预测。

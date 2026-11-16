@@ -26,7 +26,7 @@
 | 四、生产、收入与增长     | 1 / 5         | 财富从哪里生产出来                 |
 | 五、政策：货币与财政     | 1 / 4         | 央行和政府各自能动什么             |
 | 六、对外：汇率与国际收支 | 0 / 2         | 本国货币和外部世界的关系           |
-| 七、风险、收益与资产类别 | 0 / 6         | 收益从哪来，风险长什么样           |
+| 七、风险、收益与资产类别 | 0 / 3         | 收益从哪来，风险长什么样           |
 | 八、读懂数据与图表       | 0 / 2         | 怎样不被数字和图形误导             |
 
 概念列中带 `*` 的为待建概念，定义见文末概念清单。
@@ -94,9 +94,8 @@
 | 风险与收益入门 | `macro-risk-return` · `risk-return`     | 待写 | 核心 | risk-premium\*, volatility\*, diversification\*, opportunity-cost\* | 图解：风险收益坐标                               |
 | 资产类别图谱   | `macro-asset-classes` · `asset-classes` | 待写 | 核心 | asset-class\*, liquidity\*, nominal-vs-real\*                       | 图解：现金、存款、债券、股票、基金、房产、贵金属 |
 | 黄金与白银     | `macro-gold-silver` · `gold-silver`     | 待写 | 核心 | gold\*, silver\*, store-of-value\*, real-interest                   | 图解：需求结构与实际利率                         |
-| 债券是什么     | `macro-bonds` · `bonds`                 | 可选 | 进阶 | bond\*, yield-curve\*, interest-rate                                | 图解：票息、价格与收益率                         |
-| 股票是什么     | `macro-equities` · `equities`           | 可选 | 进阶 | equity\*, risk-premium\*                                            | 图解：利润、分红与估值                           |
-| 基金与费用     | `macro-funds` · `funds`                 | 可选 | 进阶 | fund\*, diversification\*, annualized-rate\*                        | 图解：费用对长期收益的侵蚀                       |
+
+资产类别的深入内容——债券、股票、基金、贵金属渠道、房地产、期货、期权等——放在投资模块，见[投资内容大纲](outline-investing.md)。这里只保留概览和概念卡。
 
 ### 黄金与白银的边界
 
@@ -193,4 +192,4 @@
 - 每篇至少一个可核对来源，数字为教学示例。
 - 涉及购买渠道、仓位、税费和交易成本的内容，留给 `investing` 模块。
 
-相关文档：[架构说明](architecture.md)、[实施记录](migration.md)。
+相关文档：[架构说明](architecture.md)、[投资内容大纲](outline-investing.md)、[实施记录](migration.md)。
