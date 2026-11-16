@@ -1,0 +1,50 @@
+{
+  "name": "money-atlas",
+  "version": "1.0.0",
+  "description": "金融知识图解与交互实验",
+  "scripts": {
+    "dev": "astro dev",
+    "check": "astro check",
+    "build": "astro build && node scripts/check-links.mjs",
+    "preview": "astro preview",
+    "test": "vitest run",
+    "test:e2e": "playwright test"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "dependencies": {
+    "@astrojs/mdx": "^4.3.14",
+    "@astrojs/react": "^4.4.2",
+    "@astrojs/sitemap": "^3.6.0",
+    "@radix-ui/react-slider": "^1.6.1",
+    "@tailwindcss/vite": "^4.3.5",
+    "astro": "^5.18.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "tailwind-merge": "^3.7.0",
+    "tailwindcss": "^4.3.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.12",
+    "@playwright/test": "^1.65.1",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "prettier": "^3.10.1",
+    "prettier-plugin-astro": "^1.1.2",
+    "typescript": "^5.9.3",
+    "vitest": "^3.2.7"
+  },
+  "private": true,
+  "engines": {
+    "node": ">=22.17.0"
+  },
+  "overrides": {
+    "astro": {
+      "unifont": "0.7.4"
+    }
+  }
+}

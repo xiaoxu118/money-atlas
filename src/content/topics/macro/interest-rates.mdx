@@ -1,0 +1,52 @@
+---
+{
+  'id': 'macro-interest-rates',
+  'slug': 'interest-rates',
+  'title': '利率：使用资金的价格',
+  'module': 'macro',
+  'summary': '用一年单利理解贷款成本，再区分名义利率、实际利率和政策传导。',
+  'concepts': ['interest-rate', 'real-interest'],
+  'updatedAt': '2026-11-16',
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '英格兰银行：利率传导',
+        'url': 'https://www.bankofengland.co.uk/explainers/why-have-interest-rates-in-the-uk-gone-up',
+      },
+      {
+        'title': 'CORE Econ：The Economy 2.0',
+        'url': 'https://books.core-econ.org/the-economy/en/index.html',
+      },
+    ],
+  'displayOrder': 40,
+}
+---
+
+import InterestRates from '../../../experiments/interest-rates/InterestRates';
+
+## 问题从这里开始
+
+同样借 10,000 元，一年后还款，年利率从 3% 变为 6%，利息会差多少？
+
+## 利率连接今天与未来
+
+借款人支付利息，提前使用资金；储蓄者获得利息，推迟使用资金。不同期限、风险和合同的利率不同，贷款利率和存款利率通常也不同。
+
+<InterestRates client:visible />
+
+## 结果解释
+
+本金 10,000 元、年利率 3%，一年利息为 300 元；年利率 6% 时为 600 元，相差 300 元。实验的控制杆调整的是**示例贷款年利率**。
+
+固定利率贷款在约定期内不一定随政策利率即时调整；分期房贷还需要考虑每期本金余额，不能套用到期还本的结果当月供。
+
+## 名义利率与实际利率
+
+名义利率描述金额变化，实际利率关注购买力。近似关系：**实际利率 ≈ 名义利率 − 通胀率**。精确关系为 **(1+i)/(1+π)−1**，其中 i 和 π 使用小数。
+
+名义收益 4%、通胀 2.5%，实际收益近似 1.5%，精确约 1.46%；通胀 6% 时，购买力反而可能下降。事前决策使用预期通胀，事后衡量使用实际通胀。
+
+## 模型边界
+
+政策利率经过市场融资和银行定价，才影响个人贷款利率。较长期利率还受未来利率预期、通胀预期和风险溢价等影响。较高融资成本可能抑制新增借款，但作用存在时滞，不是直接控制物价的开关。

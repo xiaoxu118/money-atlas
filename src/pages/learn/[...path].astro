@@ -1,0 +1,32 @@
+---
+import { publishedTopics } from '../../lib/topics';
+export async function getStaticPaths() {
+  const topics = await publishedTopics();
+  return [
+    { params: { path: undefined }, props: { target: '/knowledge/' } },
+    { params: { path: 'macro' }, props: { target: '/knowledge/macro/' } },
+    ...topics.map((t) => ({
+      params: { path: `macro/${t.data.slug}` },
+      props: { target: `/knowledge/macro/${t.data.slug}/` },
+    })),
+  ];
+}
+const { target } = Astro.props;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>内容已迁移</title>
+  </head>
+  <body>
+    <h1>内容已迁移</h1>
+    <a href={target}>查看知识图解</a>
+    <script is:inline define:vars={{ target }}>
+      location.replace(target + location.hash);
+    </script>
+  </body>
+</html>

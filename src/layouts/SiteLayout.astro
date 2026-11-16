@@ -1,0 +1,69 @@
+---
+import '../styles/global.css';
+interface Props {
+  title: string;
+  description?: string;
+}
+const {
+  title,
+  description = '把货币、利率与通胀画成图，用图解和能动手的实验讲清经济运行。',
+} = Astro.props;
+const canonical = Astro.site
+  ? new URL(Astro.url.pathname, Astro.site)
+  : undefined;
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} · 钱图</title>
+    <meta name="description" content={description} />
+    {canonical && <link rel="canonical" href={canonical} />}
+  </head>
+  <body>
+    <a class="skip" href="#main">
+      跳到正文
+    </a>
+    <header class="site-header">
+      <a class="brand" href="/">
+        <span>◈ 钱图</span>
+        <span class="brand-en" lang="en">Money Atlas</span>
+      </a>
+      <nav aria-label="主导航">
+        <a
+          href="/knowledge/"
+          aria-current={
+            Astro.url.pathname.startsWith('/knowledge/') ? 'page' : undefined
+          }
+        >
+          知识图解
+        </a>
+        <a
+          href="/concepts/"
+          aria-current={
+            Astro.url.pathname.startsWith('/concepts/') ? 'page' : undefined
+          }
+        >
+          概念索引
+        </a>
+        <a
+          href="/labs/"
+          aria-current={
+            Astro.url.pathname.startsWith('/labs/') ? 'page' : undefined
+          }
+        >
+          交互实验
+        </a>
+      </nav>
+    </header>
+    <main id="main">
+      <slot />
+    </main>
+    <footer class="site-footer">
+      <span>钱图 Money Atlas / 先理解，再做判断</span>
+      <span>全部数字为教学示例 · 内容整理于 2026-11-16</span>
+    </footer>
+  </body>
+</html>

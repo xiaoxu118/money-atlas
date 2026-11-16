@@ -1,0 +1,15 @@
+---
+import { publishedTopics } from '../../lib/topics';
+import { topicHref } from '../../data/topic-links';
+const topics = await publishedTopics();
+---
+
+<div class="topic-grid">
+  {topics.map((topic) => (
+    <a class="index-card" href={topicHref(topic.data.slug)}>
+      <h2>{topic.data.title}</h2>
+      <p>{topic.data.summary}</p>
+      <span>查看图解与说明 ↗</span>
+    </a>
+  ))}
+</div>

@@ -1,0 +1,49 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import { concepts } from '../../data/concepts';
+import { publishedTopics } from '../../lib/topics';
+import { topicHref } from '../../data/topic-links';
+export function getStaticPaths() {
+  return concepts.map((concept) => ({
+    params: { id: concept.id },
+    props: { concept },
+  }));
+}
+const { concept } = Astro.props;
+const topics = await publishedTopics();
+---
+
+<SiteLayout title={concept.title} description={concept.summary}>
+  <section class="page-heading">
+    <a href="/concepts/">← 概念索引</a>
+    <h1>{concept.title}</h1>
+    <p class="lead">{concept.summary}</p>
+    <h2>相关图解与说明</h2>
+    <ul>
+      {concept.topics.map((id) => {
+        const l = topics.find((l) => l.data.id === id)!;
+        return (
+          <li>
+            <a href={topicHref(l.data.slug)}>{l.data.title} →</a>
+          </li>
+        );
+      })}
+    </ul>
+    <h2>相关概念</h2>
+    <div class="controls">
+      {concepts
+        .filter(
+          (c) =>
+            c.id !== concept.id &&
+            c.topics.some((id) =>
+              (concept.topics as readonly string[]).includes(id),
+            ),
+        )
+        .map((c) => (
+          <a class="text-link" href={`/concepts/${c.id}/`}>
+            {c.title}
+          </a>
+        ))}
+    </div>
+  </section>
+</SiteLayout>
