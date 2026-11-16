@@ -1,0 +1,55 @@
+---
+{
+  'id': 'macro-gold-silver',
+  'slug': 'gold-silver',
+  'module': 'macro',
+  'group': 'risk-assets',
+  'concepts': ['gold', 'silver', 'store-of-value', 'real-interest'],
+  'title': '贵金属供需结构与实际利率敏感性',
+  'navTitle': '贵金属',
+  'summary': '从货币性需求、工业用途、供给与实际利率认识两种金属。',
+  'displayOrder': 270,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '芝加哥联储：哪些因素影响黄金价格',
+        'url': 'https://www.chicagofed.org/publications/chicago-fed-letter/2021/464',
+      },
+      {
+        'title': '美国 CFTC：黄金并非无风险资产',
+        'url': 'https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/gold_is_no_safe_investment.htm',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['需求结构', '供应与库存', '机会成本和预期', '市场价格']}
+/>
+
+## 机制分析
+
+黄金与白银都有首饰、投资和工业用途，但需求结构不同。实际利率影响持有不生息资产的机会成本，汇率、风险情绪和实物供需也会改变价格。
+
+## 关键口径与风险分解
+
+| 因素     | 黄金                   | 白银               |
+| -------- | ---------------------- | ------------------ |
+| 工业用途 | 有工业与技术需求       | 工业用途更突出     |
+| 现金流   | 实物本身不派息         | 实物本身不派息     |
+| 价格驱动 | 投资、首饰、央行等需求 | 工业、投资与供应等 |
+
+## 情景核对
+
+实际利率上升时，持有金属的机会成本可能增加；若同期风险需求或供给发生变化，价格仍可能走另一方向。
+
+## 进一步分析
+
+实际利率影响不生息金属的机会成本，但其作用可能被储备需求、供给或汇率变化抵消。跨币种观察时，本币回报还叠加汇率；不能把美元金价关系直接套到其他币种。
+
+## 理解的边界
+
+不把避险等同于价格不跌，也不给未来价格判断。渠道、杠杆与保管费用放在投资部分另讲。

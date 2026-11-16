@@ -1,0 +1,55 @@
+---
+{
+  'id': 'investing-market-mechanics',
+  'slug': 'market-mechanics',
+  'module': 'investing',
+  'group': 'investment-basics',
+  'concepts': ['order-type', 'spread', 't-plus-one', 'limit-up-down'],
+  'title': '委托撮合、价格形成与交易交收',
+  'navTitle': '交易机制',
+  'summary': '从委托到撮合、成交、清算与交收，分清价格控制与成交保证。',
+  'displayOrder': 360,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：订单类型',
+        'url': 'https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-14',
+      },
+      {
+        'title': '美国 SEC 投资者教育：委托如何成交',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/how-stock-markets-work/executing-order',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['提交委托', '检查规则与可用资金', '撮合成交', '清算交收']}
+/>
+
+## 机制分析
+
+最后成交价只是过去一笔交易的价格。新委托要与当时可用报价匹配，可能拆成多笔成交；价格优先与时间优先等规则由具体市场定义。
+
+## 关键口径与风险分解
+
+| 委托       | 主要约束           | 不能保证           |
+| ---------- | ------------------ | ------------------ |
+| 市价委托   | 按当时可用报价执行 | 固定成交价         |
+| 限价买入   | 不高于设定价格     | 一定或全部成交     |
+| 止损类委托 | 满足触发条件后生效 | 跳空时按触发价卖出 |
+
+## 情景核对
+
+卖盘只有 50 股报价 10 元、其余 50 股报价 10.10 元，买入 100 股可能有两个成交价；限价 10 元则可能只成交一部分。
+
+## 进一步分析
+
+显示的最优报价只对应有限深度。大额委托可能逐档消耗流动性并产生价格冲击；未成交、撤单与交收失败又是不同环节的风险，成交回报不等于资产已经最终交付。
+
+## 理解的边界
+
+这是订单簿示意。T+1 的交收含义与可否当日回转交易要分别核对，涨跌幅和结算安排因市场而异。

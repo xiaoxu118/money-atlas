@@ -1,0 +1,60 @@
+---
+{
+  'id': 'investing-corporate-finance',
+  'slug': 'corporate-finance',
+  'module': 'investing',
+  'group': 'structures',
+  'concepts': ['equity-financing', 'debt-financing', 'ipo', 'dilution'],
+  'title': '企业股债融资、发行定价与股权稀释',
+  'navTitle': '股债融资',
+  'summary': '比较固定偿付与剩余权益，区分 IPO、新股融资和老股转让。',
+  'displayOrder': 520,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：股票与股东权利',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks',
+      },
+      {
+        'title': '美国 SEC 投资者教育：阅读公司年度报告',
+        'url': 'https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={[
+    '企业资金需求',
+    '选择债权或股权',
+    '形成合同与所有权',
+    '影响未来现金流分配',
+  ]}
+/>
+
+## 机制分析
+
+债权融资增加偿还义务，股权融资通常以分享所有权换取资金。IPO 是首次公开发行过程中的概念，不代表全部交易款都进入公司。
+
+## 关键口径与风险分解
+
+| 方式       | 资金和权利变化           | 主要约束             |
+| ---------- | ------------------------ | -------------------- |
+| 借款或发债 | 取得资金并增加债务       | 利息、到期与契约     |
+| 发行新股   | 公司取得资金、总股数增加 | 定价与股权稀释       |
+| 老股转让   | 持有人之间交易           | 公司未必获得新增资金 |
+
+## 情景核对
+
+原有 100 股，某股东持 10 股占 10%；若新发 25 股且其不认购，占比降为 8%。占比下降不等于企业价值必定同比下降。
+
+## 进一步分析
+
+新股发行后的每股价值取决于募集价格与新增资金的使用回报，而不只取决于持股比例。债权契约、优先股与可转权利又会改变普通股承担的剩余风险。
+
+## 理解的边界
+
+优先权、可转债及不同股类会改变结论，需看具体文件。新股融资与存量股份交易不能混为一谈。

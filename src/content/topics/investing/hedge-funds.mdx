@@ -1,0 +1,52 @@
+---
+{
+  'id': 'investing-hedge-funds',
+  'slug': 'hedge-funds',
+  'module': 'investing',
+  'group': 'structures',
+  'concepts': ['hedge-fund', 'quant', 'fee-structure', 'lock-up'],
+  'title': '对冲与量化策略的敞口、融资与模型风险',
+  'navTitle': '对冲基金',
+  'summary': '对冲基金是结构与策略集合，量化是实施方法，都不是保本标签。',
+  'displayOrder': 550,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：对冲基金',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/private-investment-funds/hedge-funds',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['策略假设', '头寸与杠杆', '市场和执行', '费用后的净结果']}
+/>
+
+## 机制分析
+
+基金可能采用多空、相对价值、宏观或事件策略。量化使用模型和数据作决策，仍有模型失效、拥挤交易与执行风险；杠杆可能放大原本较小的价格变化。
+
+## 关键口径与风险分解
+
+| 观察点 | 要看什么                 | 不能代替         |
+| ------ | ------------------------ | ---------------- |
+| 策略   | 真实收益驱动与敞口       | 名字中的对冲二字 |
+| 杠杆   | 总敞口与融资条件         | 历史波动率       |
+| 费用   | 管理费、业绩费与计提规则 | 宣传毛收益       |
+| 退出   | 锁定期、赎回窗口与限制   | 每日展示的估值   |
+
+## 情景核对
+
+两边各持有 100 的多空组合净敞口可为零，但总敞口为 200；相关关系变化、融资或做空成本仍可能造成损失。
+
+## 进一步分析
+
+净敞口接近零并不消除基差、因子和融资风险。量化回测还要处理数据清洗、幸存者偏差、交易冲击和拥挤退出；扣除模拟成本后仍需检验模型在样本外是否稳健。
+
+## 理解的边界
+
+这里只解释结构，不列策略预期收益。模型回测与实际可交易结果不同，也需注意幸存者偏差。

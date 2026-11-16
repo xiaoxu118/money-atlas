@@ -1,0 +1,55 @@
+---
+{
+  'id': 'investing-precious-metals',
+  'slug': 'precious-metals',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts': ['gold', 'silver', 'custody', 'spread'],
+  'title': '贵金属持有结构、渠道摩擦与展期成本',
+  'navTitle': '金银投资',
+  'summary': '比较实物、基金和期货的权利、费用与风险；价格观点不等于产品选择。',
+  'displayOrder': 440,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 CFTC：黄金并非无风险资产',
+        'url': 'https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/gold_is_no_safe_investment.htm',
+      },
+      {
+        'title': '芝加哥联储：哪些因素影响黄金价格',
+        'url': 'https://www.chicagofed.org/publications/chicago-fed-letter/2021/464',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['识别渠道', '核对持有权利', '累计成本', '检查退出条件']}
+/>
+
+## 机制分析
+
+实物涉及真伪、存储和买卖价差；基金涉及跟踪方式、费用和交易价格；期货还涉及保证金、到期和展期。名称相同不表示持有完全同一种权利。
+
+## 关键口径与风险分解
+
+| 渠道     | 主要成本               | 额外风险             |
+| -------- | ---------------------- | -------------------- |
+| 实物金属 | 点差、鉴定、保管       | 真伪、保管与回购条件 |
+| 相关基金 | 持续费用与交易摩擦     | 跟踪、底层及结构     |
+| 期货     | 保证金资金、交易与展期 | 杠杆、追保、交割     |
+
+## 情景核对
+
+实物买入报价 105、同期可卖报价 100，即使市场基准价格不变，也不能按 105 原价立即卖回。差额不是金属价格下跌造成的。
+
+## 进一步分析
+
+期货展期损益取决于近远月价格结构，并非简单的固定持有费用。实物、期货及矿业股基金还分别暴露于保管、合约和企业经营风险，不能仅凭名称进行同口径收益比较。
+
+## 理解的边界
+
+只解释结构，不提供购买渠道或仓位推荐。基金名称可能含黄金但持有矿业股，需查底层。

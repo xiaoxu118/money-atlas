@@ -2,11 +2,11 @@
 {
   'id': 'macro-case',
   'slug': 'case',
-  'title': '面包店案例：把机制串起来',
+  'title': '企业融资、支付与偿债的存量流量核对',
+  'navTitle': '存量流量',
   'module': 'macro',
   'summary': '用一笔贷款、两次支付和一次还本，核对账户变化，再判断哪些经济结论成立。',
   'concepts': ['bank-credit', 'real-economy'],
-  'updatedAt': '2026-11-16',
   'status': 'published',
   'sources':
     [
@@ -23,13 +23,14 @@
         'url': 'https://www.pearson.com/content/dam/one-dot-com/one-dot-com/hei-samples/business---economics/9781292409481-toc.pdf',
       },
     ],
-  'displayOrder': 70,
+  'displayOrder': 300,
+  'group': 'cases',
 }
 ---
 
-## 问题从这里开始
+import TopicVisual from '../../../components/diagrams/TopicVisual.astro';
 
-面包店贷款、招人、卖面包、还贷款。这些变化能否合并为一句“钱多了，所以物价会上涨”？
+<TopicVisual kind="case" />
 
 ## 沿着同一笔业务核对
 
@@ -39,7 +40,7 @@
 4. 面包店偿还 1,000 元本金，面包店 7,100 元、员工 1,900 元，存款合计和剩余贷款均为 9,000 元。
 5. 下一次决策中，较高融资成本可能让扩张推迟；价格是否上涨仍取决于需求、供给、成本等条件。
 
-在[分步记账实验](/knowledge/macro/money/#money-creation)中逐项核对，可随时切换步骤或重置场景。
+在[记账图表](/knowledge/macro/money/#money-creation)中逐项核对，各阶段的余额均列在表格中。
 
 ## 观察这三件事
 
@@ -51,4 +52,4 @@
 
 全部金额是简化教学示例，不描述任何实际银行的完整账目。案例未计生产利润、利息、手续费、税费和跨行结算的具体安排。不能从“借过款”直接推出“会通胀”。
 
-可在[概念索引](/concepts/)查找相关名词，也可以通过[实验索引](/labs/)改变条件、观察结果。
+可在[概念索引](/concepts/)查找相关名词，也可以查看[宏观知识](/knowledge/macro/)中的图解与例子。

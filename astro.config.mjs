@@ -1,5 +1,4 @@
 import { defineConfig } from 'astro/config';
-import react from '@astrojs/react';
 import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
 import tailwindcss from '@tailwindcss/vite';
@@ -9,12 +8,11 @@ export default defineConfig({
   trailingSlash: 'always',
   site: process.env.SITE_URL,
   integrations: [
-    react(),
     mdx(),
     ...(process.env.SITE_URL
       ? [
           sitemap({
-            filter: (page) => !new URL(page).pathname.startsWith('/learn/'),
+            filter: (page) => !/^\/(learn|labs)\//.test(new URL(page).pathname),
           }),
         ]
       : []),

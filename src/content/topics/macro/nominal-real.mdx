@@ -1,0 +1,55 @@
+---
+{
+  'id': 'macro-nominal-real',
+  'slug': 'nominal-real',
+  'module': 'macro',
+  'group': 'prices-inflation',
+  'concepts': ['nominal-vs-real', 'real-interest'],
+  'title': '名义增长与实际增长的口径分解',
+  'navTitle': '名义与实际',
+  'summary': '名义值保留当期价格，实际值剔除指定价格变化，两者回答不同问题。',
+  'displayOrder': 130,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国经济分析局：GDP 的三种测量视角',
+        'url': 'https://www.bea.gov/news/blog/2025-06-03/expenditures-approach-measuring-gdp',
+      },
+      {
+        'title': '美国劳工统计局：CPI 常见问题',
+        'url': 'https://www.bls.gov/cpi/questions-and-answers.htm',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['观察名义金额', '选择价格指数', '换成同一价格口径', '比较实际变化']}
+/>
+
+## 机制分析
+
+名义增长可能同时包含数量和价格变化。用价格指数折算实际值，才能在明确篮子与基期的条件下比较购买力；减法只是低变化率下的近似。
+
+## 关键口径与风险分解
+
+| 指标     | 计算思路                        | 解释         |
+| -------- | ------------------------------- | ------------ |
+| 名义增长 | 本期金额 ÷ 上期金额 − 1         | 金额变化     |
+| 实际增长 | 名义增长因子 ÷ 价格增长因子 − 1 | 扣除价格变化 |
+| 实际利率 | 利率因子 ÷ 通胀因子 − 1         | 购买力收益   |
+
+## 情景核对
+
+收入由 10,000 增到 10,500 元，相关价格上涨 3%，实际增长约 1.94%，不是名义增长的 5%。
+
+## 进一步分析
+
+用名义现金流配名义折现率，或用实际现金流配实际折现率，才保持估值一致。若先把现金流扣除通胀，又使用包含通胀补偿的名义折现率，会重复计入价格因素。
+
+## 理解的边界
+
+个人消费、GDP 与资产各需要匹配的价格口径。单一 CPI 不能自动适用于所有经济价值比较。

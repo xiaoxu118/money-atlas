@@ -1,0 +1,53 @@
+---
+{
+  'id': 'macro-yield-curve',
+  'slug': 'yield-curve',
+  'module': 'macro',
+  'group': 'rates-time',
+  'concepts': ['yield-curve', 'term-premium'],
+  'title': '收益率曲线、利率预期与期限溢价',
+  'navTitle': '收益率曲线',
+  'summary': '把不同到期期限的收益率画在同一张表里，区分期限预期与风险补偿。',
+  'displayOrder': 90,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '圣路易斯联储：收益率曲线倒挂与数据',
+        'url': 'https://fred.stlouisfed.org/blog/2018/10/the-data-behind-the-fear-of-yield-curve-inversions/',
+      },
+      {
+        'title': 'FINRA：债券特征、收益率与风险核查',
+        'url': 'https://syndication.finra.org/content/bond-investing-and-due-diligence',
+      },
+    ],
+}
+---
+
+import TopicVisual from '../../../components/diagrams/TopicVisual.astro';
+
+<TopicVisual kind="yield-curve" />
+
+## 机制分析
+
+收益率曲线描述同一时点、可比信用和币种下不同期限的收益率。它综合未来短期利率预期与期限溢价，倒挂可与降息预期有关，也受供需影响。
+
+## 关键口径与风险分解
+
+| 期限  | 向上示例 | 倒挂示例 |
+| ----- | -------- | -------- |
+| 1 年  | 2%       | 4%       |
+| 5 年  | 3%       | 3%       |
+| 10 年 | 4%       | 2.5%     |
+
+## 情景核对
+
+表中倒挂表示长端收益率低于短端，不表示十年内每一年都能按十年收益率借到钱。
+
+## 进一步分析
+
+长端收益率可用未来短端利率的预期与期限补偿作解释性分解，但期限溢价不可直接观测，需要模型估计。不同币种、信用、担保和税务条件的债券不能拼成一条可比曲线。
+
+## 理解的边界
+
+三列均为虚构示例，不是行情。曲线与经济周期存在历史关联，但不是确定衰退时间的日历。

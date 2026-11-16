@@ -1,0 +1,56 @@
+---
+{
+  'id': 'investing-crypto',
+  'slug': 'crypto',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts': ['blockchain', 'wallet', 'stablecoin', 'regulation-risk'],
+  'title': '加密资产的权利、托管与兑换风险',
+  'navTitle': '加密资产',
+  'summary': '分开看链上记录、私钥、交易平台、稳定机制和监管适用。',
+  'displayOrder': 480,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 CFTC：虚拟货币及保证金交易风险',
+        'url': 'https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html',
+      },
+      {
+        'title': '美国 SEC 投资者教育：投资诈骗类型',
+        'url': 'https://www.investor.gov/protect-your-investments/fraud/types-fraud',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['识别链上权利', '选择保管方式', '核对兑换与流动性', '理解所在地规则']}
+/>
+
+## 机制分析
+
+区块链记录的存在不等于资产价值或兑换承诺可靠。自行保管涉及密钥丢失，平台托管涉及交易对手与提款风险；稳定币还要看储备、赎回和法律权利。
+
+## 关键口径与风险分解
+
+| 层次       | 主要问题           | 可能损失来源         |
+| ---------- | ------------------ | -------------------- |
+| 技术与密钥 | 谁控制签名权       | 密钥遗失或合约漏洞   |
+| 平台托管   | 能否独立核对资产   | 挪用、破产、提款受阻 |
+| 稳定机制   | 储备与赎回权是什么 | 脱锚与兑付风险       |
+| 监管       | 交易和服务是否允许 | 制度变化与合规限制   |
+
+## 情景核对
+
+账户上看到 1 单位稳定币，不等于任何情况下都能立即换回 1 单位法币；市场价、赎回资格和实际储备分别需要确认。
+
+## 进一步分析
+
+技术共识、资产权利和发行人信用是不同层次。对有储备承诺的代币，应核对持有人是否有直接赎回权、储备法律归属与审验范围，不能将链上可验证记录等同为链下资产已被充分担保。
+
+## 理解的边界
+
+不提供交易渠道或规避限制的方法。监管因地区、资产与服务类型而异；本主题不对任何代币作价值背书。

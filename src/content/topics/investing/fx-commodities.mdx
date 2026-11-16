@@ -1,0 +1,55 @@
+---
+{
+  'id': 'investing-fx-commodities',
+  'slug': 'fx-commodities',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts': ['exchange-rate', 'commodity', 'storage-cost'],
+  'title': '外币与商品投资的复合回报来源',
+  'navTitle': '外币商品',
+  'summary': '把标的价格、汇率和持有结构拆开，区分现货与期货展期。',
+  'displayOrder': 490,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': 'IMF：实际汇率与名义汇率',
+        'url': 'https://www.imf.org/external/pubs/ft/fandd/2007/09/basics.htm',
+      },
+      {
+        'title': '美国 CFTC：虚拟货币及保证金交易风险',
+        'url': 'https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['标的价格变化', '合约或持仓回报', '币种换算', '本币净结果']}
+/>
+
+## 机制分析
+
+以外币计价的资产换回本币时，要同时经过资产收益与汇率变化。商品期货还受合约价格结构、持有资金和展期影响，不能用现货涨幅直接代替全部回报。
+
+## 关键口径与风险分解
+
+| 因素     | 关注点           | 可能偏差           |
+| -------- | ---------------- | ------------------ |
+| 汇率     | 外币相对本币升贬 | 报价方向读反       |
+| 商品现货 | 供需与库存       | 忽略储存运输       |
+| 期货持有 | 合约期限与展期   | 用现货代替策略回报 |
+
+## 情景核对
+
+外币资产上涨 10%，外币相对本币贬值 10%，不计成本的本币收益为 1.1 × 0.9 − 1 = −1%，不是零。
+
+## 进一步分析
+
+外币资产回报换成本币时，资产因子与汇率因子相乘。做汇率对冲又会引入远期定价、保证金和滚动成本，因此对冲后的回报也不等于把汇率波动从历史收益中简单删掉。
+
+## 理解的边界
+
+不讨论具体外汇交易渠道。期货价格还受融资、储存与便利收益等影响，展期方向不能脱离曲线判断。

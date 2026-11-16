@@ -1,0 +1,54 @@
+---
+{
+  'id': 'investing-futures',
+  'slug': 'futures',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts':
+    ['futures', 'margin', 'mark-to-market', 'liquidation', 'delivery'],
+  'title': '期货名义敞口、盯市与保证金约束',
+  'navTitle': '期货',
+  'summary': '保证金不是购买全额资产的折扣，盈亏按合约名义规模计算。',
+  'displayOrder': 460,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 CFTC：虚拟货币及保证金交易风险',
+        'url': 'https://www.cftc.gov/LearnAndProtect/AdvisoriesAndArticles/understand_risks_of_virtual_currency.html',
+      },
+      {
+        'title': '美国 SEC 投资者教育：保证金融资账户',
+        'url': 'https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-29',
+      },
+    ],
+}
+---
+
+import TopicVisual from '../../../components/diagrams/TopicVisual.astro';
+
+<TopicVisual kind="futures" />
+
+## 机制分析
+
+期货约定未来按条款买卖或结算标的。逐日盯市使价格变化不断转成账户盈亏，保证金不足可能要求补充或被平仓。多空两边的价格风险方向相反。
+
+## 关键口径与风险分解
+
+| 项目            | 示例          | 含义             |
+| --------------- | ------------- | ---------------- |
+| 合约规模        | 100,000 元    | 决定价格敞口     |
+| 初始保证金      | 10,000 元     | 假设为规模的 10% |
+| 多头价格下跌 3% | 亏损 3,000 元 | 占初始保证金 30% |
+
+## 情景核对
+
+价格只下跌 3%，并不代表账户只亏 3%。在忽略费用的例子中，多头权益从 10,000 降为 7,000 元，可能触及合同的维持要求。
+
+## 进一步分析
+
+同一合约的对冲效果取决于现货与期货的基差，而非只看方向一致。逐日结算会把最终可能有效的对冲变成中途现金需求，经济对冲与融资流动性需要一起设计。
+
+## 理解的边界
+
+比例是示例，不是现行交易所标准。跳空、流动性不足或强平可能使损失超过初始保证金；还需核对交割与展期。

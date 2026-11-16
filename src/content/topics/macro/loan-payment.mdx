@@ -1,0 +1,53 @@
+---
+{
+  'id': 'macro-loan-payment',
+  'slug': 'loan-payment',
+  'module': 'macro',
+  'group': 'rates-time',
+  'concepts': ['amortization', 'interest-rate'],
+  'title': '摊还结构、月供与有效融资成本',
+  'navTitle': '贷款摊还',
+  'summary': '从每期剩余本金理解等额本息、等额本金与贷款附加费用。',
+  'displayOrder': 80,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：金融术语',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/glossary',
+      },
+      {
+        'title': '美国 SEC 投资者教育：保证金融资账户',
+        'url': 'https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-29',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow items={['初始本金', '按余额计息', '本期还本', '剩余本金减少']} />
+
+## 机制分析
+
+贷款利息通常围绕尚未偿还的本金计算。等额本息在固定利率条件下保持每期本息相同，等额本金保持每期本金相同；期限拉长通常降低月供，却可能增加累计利息。
+
+## 关键口径与风险分解
+
+| 还款方式 | 每期本金           | 每期本息             |
+| -------- | ------------------ | -------------------- |
+| 到期还本 | 期限内通常不还本金 | 需按合同另付利息     |
+| 等额本金 | 每期固定           | 在固定利率下逐期下降 |
+| 等额本息 | 逐期增加           | 在固定利率下相同     |
+
+## 情景核对
+
+借款 12,000 元、12 期、月利率 0.5%，等额本金每期还本 1,000 元，首期利息 60 元，末期 5 元；等额本息月供约 1,032.80 元。
+
+## 进一步分析
+
+比较融资成本时，应把实际收到的净放款记为期初流入，将月供及强制附加费用记为后续流出，再求匹配周期的内部收益率。若用月度收益率换成年有效率，需按 (1+r月)¹²−1 处理，而非一概乘十二。
+
+## 理解的边界
+
+月利率不是把所有广告年化数字都直接除以十二。手续费、放款净额、浮动利率和提前还款费用需按合同现金流比较。

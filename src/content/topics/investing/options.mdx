@@ -1,0 +1,50 @@
+---
+{
+  'id': 'investing-options',
+  'slug': 'options',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts': ['option', 'premium', 'strike', 'implied-volatility'],
+  'title': '期权支付结构、权利义务与非线性风险',
+  'navTitle': '期权',
+  'summary': '区分看涨、看跌、买方和卖方，用到期收益而非价格方向理解合约。',
+  'displayOrder': 470,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': 'OCC 投资者教育：期权的权利与义务',
+        'url': 'https://prd-web.optionseducation.org/optionsoverview/options-basics',
+      },
+    ],
+}
+---
+
+import TopicVisual from '../../../components/diagrams/TopicVisual.astro';
+
+<TopicVisual kind="options" />
+
+## 机制分析
+
+期权买方支付权利金，取得按条款买卖标的的权利；卖方收到权利金，承担被指派时的义务。期权价格还受期限与隐含波动率影响。
+
+## 关键口径与风险分解
+
+| 头寸     | 到期内在价值（每单位） | 净盈亏再处理 |
+| -------- | ---------------------- | ------------ |
+| 买入看涨 | max(S − K, 0)          | 减支付权利金 |
+| 买入看跌 | max(K − S, 0)          | 减支付权利金 |
+| 卖出看涨 | 承担买入看涨的反向义务 | 加收到权利金 |
+| 卖出看跌 | 承担买入看跌的反向义务 | 加收到权利金 |
+
+## 情景核对
+
+执行价 100 的看涨期权支付权利金 5，到期标的价 103，内在价值 3，净亏 2；方向看对也可能亏损。
+
+## 进一步分析
+
+到期损益图没有展示到期前的时间价值。期权组合的风险还取决于标的价格、隐含波动率和剩余期限的联动；卖方收到权利金，不等于已经赚取不承担后续义务的收入。
+
+## 理解的边界
+
+例子按单单位、仅到期、无费用计算，合约乘数另计。裸卖看涨可能面临理论无限损失，买方通常可能损失全部权利金。

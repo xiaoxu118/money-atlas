@@ -2,11 +2,11 @@
 {
   'id': 'macro-inflation',
   'slug': 'inflation',
-  'title': '通胀、通缩与购买力',
+  'title': '通胀、通缩与实际购买力变化',
+  'navTitle': '通胀与通缩',
   'module': 'macro',
   'summary': '区分价格水平和涨价速度，用固定预算观察购买力，再理解 CPI 与供需情景。',
   'concepts': ['inflation', 'cpi'],
-  'updatedAt': '2026-11-16',
   'status': 'published',
   'sources':
     [
@@ -19,21 +19,22 @@
         'url': 'https://www.ecb.europa.eu/ecb-and-you/explainers/tell-me-more/html/what_is_inflation.en.html',
       },
     ],
-  'displayOrder': 50,
+  'displayOrder': 100,
+  'group': 'prices-inflation',
 }
 ---
 
-import PurchasingPower from '../../../experiments/purchasing-power/PurchasingPower';
+import TopicVisual from '../../../components/diagrams/TopicVisual.astro';
 
-## 问题从这里开始
+import PurchasingPower from '../../../components/diagrams/PurchasingPower.astro';
 
-同样 100 元，以前可以买 10 件商品，单价从 10 元涨到 12 元后，只能买约 8.33 件。这个例子说明购买力，但不能单独证明总体通胀。
+<TopicVisual kind="inflation" />
 
 ## 价格水平与涨价速度
 
 通胀是总体价格水平持续上涨。价格从 100 涨到 105，再涨到 107.1，通胀率从 5% 降为 2%，价格仍在上涨。**通胀放缓不等于降价。** 通缩是总体价格水平持续下降，可能与需求疲弱和债务压力相伴。
 
-<PurchasingPower client:visible />
+<PurchasingPower />
 
 ## 结果解释
 

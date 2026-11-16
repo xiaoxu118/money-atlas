@@ -1,0 +1,55 @@
+---
+{
+  'id': 'macro-balance-payments',
+  'slug': 'balance-payments',
+  'module': 'macro',
+  'group': 'international',
+  'concepts': ['current-account', 'capital-account'],
+  'title': '国际收支、跨境融资与外部失衡',
+  'navTitle': '国际收支',
+  'summary': '区分经常账户、狭义资本账户与金融账户，避免把所有跨境资金都叫资本账户。',
+  'displayOrder': 240,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': 'IMF：国际收支手册',
+        'url': 'https://www.imf.org/external/pubs/ft/bopman/bopman.pdf',
+      },
+      {
+        'title': 'IMF：经常账户差额意味着什么',
+        'url': 'https://www.imf.org/external/pubs/ft/fandd/2006/12/basics.htm',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['识别居民与非居民', '辨别交易内容', '配对记账', '汇总账户差额']}
+/>
+
+## 机制分析
+
+国际收支记录居民与非居民间的经济交易。货物服务与收入主要进经常账户，投资资产和负债交易主要进金融账户；狭义资本账户另记资本转移等。
+
+## 关键口径与风险分解
+
+| 交易         | 主要账户 | 说明               |
+| ------------ | -------- | ------------------ |
+| 进口商品     | 经常账户 | 记录货物交易       |
+| 取得海外股权 | 金融账户 | 取得金融资产       |
+| 特定资本转移 | 资本账户 | 不等于所有投资流动 |
+
+## 情景核对
+
+企业进口设备并以境外存款支付：一边记设备进口，另一边涉及外部金融资产减少。不是只记一次钱离境就结束。
+
+## 进一步分析
+
+经常账户与储蓄投资差额存在会计联系，但不能据此识别单向因果。外部脆弱性还取决于融资期限、币种和是否可撤回；同样的经常账户赤字可以对应很不同的资产负债结构。
+
+## 理解的边界
+
+正式符号和差额关系按对应版国际收支手册核对，并含统计误差。经常账户赤字既不自动等于危机，也不是无代价的融资。

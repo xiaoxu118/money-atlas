@@ -1,0 +1,54 @@
+---
+{
+  'id': 'investing-bonds',
+  'slug': 'bonds',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts':
+    ['bond', 'coupon', 'yield-to-maturity', 'duration', 'credit-rating'],
+  'title': '债券现金流、到期收益率与价格敏感性',
+  'navTitle': '债券',
+  'summary': '区分面值、票息、到期收益率与价格，先看约定现金流再看折现。',
+  'displayOrder': 390,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：债券',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/bonds-or-fixed-income-products/bonds',
+      },
+      {
+        'title': 'FINRA：久期与利率风险',
+        'url': 'https://syndication.finra.org/content/duration-what-interest-rate-hike-could-do-your-bond-portfolio',
+      },
+    ],
+}
+---
+
+import TopicVisual from '../../../components/diagrams/TopicVisual.astro';
+
+<TopicVisual kind="bonds" />
+
+## 机制分析
+
+债券是发行人对持有人承担的债务。对固定、无违约现金流，要求收益率上升意味着折现后的价格下降；票息率不会因此自动改写。
+
+## 关键口径与风险分解
+
+| 概念       | 含义                         | 不能混同           |
+| ---------- | ---------------------------- | ------------------ |
+| 面值       | 合同还本基数                 | 二级市场买价       |
+| 票息率     | 票息相对面值的比例           | 买入后实际年化回报 |
+| 到期收益率 | 使价格等于现金流现值的折现率 | 保证兑现的净收益   |
+
+## 情景核对
+
+一年后约定收取 105 元的债券，按 5% 折现价格为 100 元；按 10% 折现约为 95.45 元。例子假设到期正常支付。
+
+## 进一步分析
+
+到期收益率是定价内含的统一折现率，不是各期必然实现的再投资利率。对含权债券还需区分到期、赎回等现金流情景；久期近似适合小幅利率变化，较大变化需考虑凸性。
+
+## 理解的边界
+
+还会有违约、提前赎回、流动性和再投资风险。久期表示利率敏感度，不等于持有多久或信用评级。

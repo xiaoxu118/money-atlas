@@ -1,34 +1,19 @@
 ---
-import SiteLayout from '../../layouts/SiteLayout.astro';
-import { experiments } from '../../data/experiment-registry';
-import { publishedTopics } from '../../lib/topics';
-import { topicHref } from '../../data/topic-links';
-const topics = await publishedTopics();
+const target = '/knowledge/';
 ---
 
-<SiteLayout title="交互实验">
-  <section class="page-heading">
-    <span class="eyebrow">CHANGE / OBSERVE / UNDERSTAND</span>
-    <h1>
-      把条件变一变，
-      <br />
-      看结果怎样改变。
-    </h1>
-    <p class="lead">
-      改变条件，观察账户、利息与购买力的变化。每个实验都提供解释与边界，结果和说明可直接查看。
-    </p>
-  </section>
-  <div class="card-grid">
-    {experiments.map((e, i) => (
-      <a
-        class="index-card"
-        href={`${topicHref(topics.find((l) => l.data.id === e.topic)!.data.slug)}#${e.anchor}`}
-      >
-        <span class="eyebrow">实验 {String(i + 1).padStart(2, '0')}</span>
-        <h2>{e.title}</h2>
-        <p>{e.summary}</p>
-        <span>打开实验 →</span>
-      </a>
-    ))}
-  </div>
-</SiteLayout>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>查看知识图解</title>
+  </head>
+  <body>
+    <a href={target}>查看知识图解</a>
+    <script is:inline define:vars={{ target }}>
+      location.replace(target);
+    </script>
+  </body>
+</html>

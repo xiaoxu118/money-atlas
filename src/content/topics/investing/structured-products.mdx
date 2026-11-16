@@ -1,0 +1,52 @@
+---
+{
+  'id': 'investing-structured-products',
+  'slug': 'structured-products',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts': ['structured-product', 'payoff', 'counterparty-risk'],
+  'title': '结构化产品的支付条款与发行人风险',
+  'navTitle': '结构化产品',
+  'summary': '把结构化产品分解成发行人承诺和衍生条款，区分到期保护与途中可卖价格。',
+  'displayOrder': 500,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：结构化票据的条款',
+        'url': 'https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/structured',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['发行人信用', '参考标的与观察规则', '套用支付公式', '到期或提前终止']}
+/>
+
+## 机制分析
+
+结构化产品常把债务工具与衍生支付组合起来。参与率、封顶、障碍、观察日期和提前终止条款共同决定收益；发行人违约还可能影响本金兑付。
+
+## 关键口径与风险分解
+
+| 条款       | 需要明确             | 常见误读           |
+| ---------- | -------------------- | ------------------ |
+| 本金保护   | 比例、期限与信用前提 | 随时卖出都不亏     |
+| 参与率     | 参与哪一段标的收益   | 获得全部标的涨幅   |
+| 封顶或障碍 | 在哪些条件触发       | 只看最乐观收益     |
+| 提前终止   | 由谁按什么条件决定   | 期限永远由投资者选 |
+
+## 情景核对
+
+假设到期本金保护、上涨参与率 50%、回报封顶 8%，标的涨 30% 时，示意支付回报为 8%，不是 15% 或 30%。
+
+## 进一步分析
+
+参与率与封顶只覆盖部分支付结构。障碍观察方式、最差标的条款和提前赎回权都可能带来非线性暴露；在发行人信用相同的前提下，仍需逐情景列支付结果。
+
+## 理解的边界
+
+这是自定义支付例子，不代表任何发行产品。保护还以合同有效且发行人履约为前提，中途价格可能低于本金。

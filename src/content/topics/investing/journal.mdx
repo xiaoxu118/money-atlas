@@ -1,0 +1,56 @@
+---
+{
+  'id': 'investing-journal',
+  'slug': 'journal',
+  'module': 'investing',
+  'group': 'behavior',
+  'concepts': ['process', 'benchmark'],
+  'title': '投资决策记录、基准与事后归因',
+  'navTitle': '决策记录',
+  'summary': '把当时信息、预期、风险和事后结果分开记录，区分过程与运气。',
+  'displayOrder': 610,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：投资者行为偏差',
+        'url': 'https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-72',
+      },
+      {
+        'title': '美国 SEC 投资者教育：阅读公司年度报告',
+        'url': 'https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['事前记录', '执行与成本', '事实发生', '检查假设与过程']}
+/>
+
+## 机制分析
+
+复盘要使用当时可获得的信息，而不是把后来发生的事写回原计划。基准应与币种、风险和现金流相匹配，单次输赢不足以判断方法有效。
+
+## 关键口径与风险分解
+
+| 记录项     | 事前内容             | 事后核对         |
+| ---------- | -------------------- | ---------------- |
+| 判断依据   | 哪条信息支持观点     | 信息是否可靠     |
+| 反向情景   | 什么事实会推翻判断   | 是否选择性忽略   |
+| 资金与风险 | 期限、暴露与退出约束 | 是否违反原有约束 |
+| 结果与基准 | 比较口径             | 收益来自何种暴露 |
+
+## 情景核对
+
+买入后因未预见的收购消息上涨，可以记录盈利，却不能把它改写成原本准确预测了收购。
+
+## 进一步分析
+
+评价决策要尽量分离市场暴露、主动判断与执行摩擦。一个与组合风险不同的低收益基准会制造虚假超额收益，事后更换基准也会破坏过程评估的可比性。
+
+## 理解的边界
+
+记录模板不设置打卡、分数或完成任务。少量样本、市场环境变化和交易成本都会限制结论。

@@ -1,0 +1,122 @@
+---
+interface Props {
+  title: string;
+  labels: string[];
+  series: { name: string; values: number[] }[];
+  xValues?: number[];
+  unit?: string;
+  caption: string;
+}
+const {
+  title,
+  labels,
+  series,
+  unit = '',
+  caption,
+  xValues = labels.map((_, i) => i),
+} = Astro.props;
+const all = series.flatMap((s) => s.values);
+const rawMin = Math.min(...all);
+const rawMax = Math.max(...all);
+const rawRange = rawMax - rawMin;
+// Round the domain outward to readable ticks so the plotted data fills the
+// frame instead of leaving most of it empty above a forced zero baseline.
+const niceStep = (value: number) => {
+  const exponent = Math.floor(Math.log10(value));
+  const fraction = value / 10 ** exponent;
+  const niceFraction =
+    fraction < 1.5 ? 1 : fraction < 3 ? 2 : fraction < 7 ? 5 : 10;
+  return niceFraction * 10 ** exponent;
+};
+const span = rawRange === 0 ? Math.max(Math.abs(rawMax) * 0.2, 1) : rawRange;
+const step = niceStep(span / 4);
+let min = Math.floor(rawMin / step) * step;
+let max = Math.ceil(rawMax / step) * step;
+if (max === min) {
+  min -= step;
+  max += step;
+}
+const range = max - min;
+const xMin = Math.min(...xValues);
+const xRange = Math.max(...xValues) - xMin || 1;
+const x = (i: number) => 64 + ((xValues[i]! - xMin) / xRange) * 270;
+const y = (n: number) => 204 - ((n - min) / range) * 164;
+const colors = ['var(--accent)', '#b57030', '#587faa'];
+const display = (n: number) =>
+  Math.abs(n) >= 10000
+    ? `${(n / 10000).toFixed(1)}万`
+    : n.toLocaleString('zh-CN', { maximumFractionDigits: 1 });
+---
+
+<figure class="knowledge-chart">
+  <h2>{title}</h2>
+  <svg
+    viewBox="0 0 360 250"
+    role="img"
+    aria-label={`${title}。${series.map((s) => s.name + ': ' + s.values.map((v, i) => labels[i] + ' ' + display(v) + unit).join('，')).join('；')}`}
+  >
+    {[0, 0.5, 1].map((r) => {
+      const value = min + range * r;
+      return (
+        <g>
+          <path
+            d={`M64 ${y(value)} H334`}
+            stroke="var(--line)"
+            stroke-dasharray="3 4"
+          />
+          <text
+            x="56"
+            y={y(value) + 5}
+            text-anchor="end"
+            fill="var(--muted)"
+            font-size="13"
+          >
+            {display(value)}
+            {unit}
+          </text>
+        </g>
+      );
+    })}
+    <path d="M64 30 V204 H340" fill="none" stroke="var(--muted)" />
+    {labels.map((label, i) => (
+      <text
+        x={x(i)}
+        y="230"
+        text-anchor="middle"
+        font-size="13"
+        fill="var(--muted)"
+      >
+        {label}
+      </text>
+    ))}
+    {series.map((s, i) => (
+      <g>
+        <polyline
+          points={s.values.map((v, k) => `${x(k)},${y(v)}`).join(' ')}
+          stroke={colors[i % colors.length]}
+          stroke-width="3"
+          stroke-dasharray={i === 1 ? '7 4' : undefined}
+          fill="none"
+        />
+        {s.values.map((v, k) => (
+          <circle
+            cx={x(k)}
+            cy={y(v)}
+            r="3.5"
+            fill={colors[i % colors.length]}
+          />
+        ))}
+      </g>
+    ))}
+  </svg>
+  <div class="chart-key">
+    {series.map((s, i) => (
+      <span>
+        <i style={`background:${colors[i % colors.length]}`}></i>
+        {s.name}
+        {i === 1 ? '（虚线）' : ''}
+      </span>
+    ))}
+  </div>
+  <figcaption>{caption}</figcaption>
+</figure>

@@ -1,0 +1,55 @@
+---
+{
+  'id': 'macro-business-cycle',
+  'slug': 'business-cycle',
+  'module': 'macro',
+  'group': 'production-growth',
+  'concepts': ['business-cycle', 'unemployment'],
+  'title': '经济周期的识别、传导与拐点约束',
+  'navTitle': '经济周期',
+  'summary': '用产出、就业、收入与信用共同观察周期，区分波动与长期增长。',
+  'displayOrder': 170,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': 'IMF：基础经济概念专题',
+        'url': 'https://www.imf.org/external/pubs/ft/fandd/basics/index-0629.htm',
+      },
+      {
+        'title': '美国劳工统计局：就业与劳动力定义',
+        'url': 'https://www.bls.gov/cps/definitions.htm',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['需求与产出扩张', '资源约束或冲击', '活动收缩', '调整与恢复']}
+/>
+
+## 机制分析
+
+经济周期描述总体活动的扩张与收缩，拐点通常需要多个指标和后续数据确认。结构变化、供给冲击和政策都可能改变持续时间。
+
+## 关键口径与风险分解
+
+| 阶段       | 可能观察到             | 不能直接断言     |
+| ---------- | ---------------------- | ---------------- |
+| 扩张       | 产出和就业改善         | 所有行业一起上涨 |
+| 峰值附近   | 增长放慢或约束增加     | 某日就是确定顶点 |
+| 收缩与恢复 | 就业、收入等转弱后修复 | 固定几年必然循环 |
+
+## 情景核对
+
+某行业订单下降而服务业仍增长，并不足以证明全经济已经衰退；需要区分局部活动和总体指标。
+
+## 进一步分析
+
+产出水平、产出增速与产出缺口是三个不同变量。增速放缓不等于产出下降，负缺口也不必然对应当期负增长；周期识别还需要区分趋势变动与暂时波动。
+
+## 理解的边界
+
+这里是机制示意，不给周期长度或资产择时信号。各机构的衰退判定也不完全相同。

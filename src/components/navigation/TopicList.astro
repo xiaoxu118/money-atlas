@@ -1,15 +1,47 @@
 ---
 import { publishedTopics } from '../../lib/topics';
 import { topicHref } from '../../data/topic-links';
+import { modules, topicGroups, type TopicModule } from '../../data/content-map';
+interface Props {
+  module?: TopicModule;
+}
+const { module } = Astro.props;
 const topics = await publishedTopics();
 ---
 
-<div class="topic-grid">
-  {topics.map((topic) => (
-    <a class="index-card" href={topicHref(topic.data.slug)}>
-      <h2>{topic.data.title}</h2>
-      <p>{topic.data.summary}</p>
-      <span>查看图解与说明 ↗</span>
-    </a>
+{modules
+  .filter((m) => !module || m.id === module)
+  .map((m) => (
+    <section class="directory-module" aria-label={m.title}>
+      {!module && (
+        <header class="directory-module-heading">
+          <h2>
+            <a href={`/knowledge/${m.id}/`}>{m.title}</a>
+          </h2>
+          <span>
+            {topics.filter((t) => t.data.module === m.id).length} 个主题
+          </span>
+        </header>
+      )}
+      <div class="knowledge-directory">
+        {topicGroups
+          .filter((group) => group.module === m.id)
+          .map((group) => (
+            <section class="directory-group" id={group.id}>
+              <h2>{group.title}</h2>
+              <ul>
+                {topics
+                  .filter((topic) => topic.data.group === group.id)
+                  .map((topic) => (
+                    <li>
+                      <a href={topicHref(topic.data)}>
+                        <span>{topic.data.title}</span>
+                      </a>
+                    </li>
+                  ))}
+              </ul>
+            </section>
+          ))}
+      </div>
+    </section>
   ))}
-</div>

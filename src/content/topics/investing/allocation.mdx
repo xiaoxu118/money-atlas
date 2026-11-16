@@ -1,0 +1,51 @@
+---
+{
+  'id': 'investing-allocation',
+  'slug': 'allocation',
+  'module': 'investing',
+  'group': 'investment-basics',
+  'concepts': ['asset-allocation', 'correlation', 'rebalancing'],
+  'title': '资产配置、相关性与再平衡机制',
+  'navTitle': '资产配置',
+  'summary': '权重会随价格漂移，再平衡把持仓拉回指定规则，不是预测下一轮赢家。',
+  'displayOrder': 340,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：配置、分散与再平衡',
+        'url': 'https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['设定示例比例', '价格变化导致漂移', '按规则调整', '恢复目标暴露']}
+/>
+
+## 机制分析
+
+不同资产涨跌后，原来的资金比例会变化。再平衡可按时间或偏离阈值触发，也可利用新增现金流；每种做法都可能产生费用和税务影响。
+
+## 关键口径与风险分解
+
+| 阶段             | 资产 A | 资产 B |
+| ---------------- | ------ | ------ |
+| 最初金额         | 50     | 50     |
+| A 涨 20%、B 不变 | 60     | 50     |
+| 恢复各半         | 55     | 55     |
+
+## 情景核对
+
+总额变为 110 后，若恢复 50/50，需将 A 的 5 转入 B，未计交易费用。目标比例是教学假设，不是配置建议。
+
+## 进一步分析
+
+组合方差不仅由单项波动决定，还包含协方差项。相关性在危机中可能上升，按历史相关矩阵设定的权重需要承认估计误差；再平衡是风险控制规则，不是从历史自动推导出的收益来源。
+
+## 理解的边界
+
+相关性并非常数，分散和再平衡都不能保证避免亏损。比例还需结合期限、币种与流动性约束理解。

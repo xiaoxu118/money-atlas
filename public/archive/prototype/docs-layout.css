@@ -22,11 +22,11 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #09
 .receipt{background:var(--tint);border:1px solid var(--soft);border-radius:8px}.receipt .row{color:#414d60;font-size:14px;padding:8px 0}.receipt .row b{color:var(--accent);font-size:19px}.receipt .row+.row{border-color:var(--soft)}.balance-symbol{color:#4b5563}
 .take{font-size:15px;line-height:1.85;color:#374151;margin-top:14px}.take:before{color:var(--accent)}
 .caption{font-size:14px;line-height:1.85;color:var(--secondary);margin-top:14px}
-.expand,.expand p{font-size:14px;line-height:1.9;color:#414d60}.expand summary{color:#1756a9;padding:5px 0}.expand summary:hover{text-decoration:underline}
+.expand,.expand p{font-size:14px;line-height:1.9;color:#414d60}.expand summary{color:#1756a9;padding:5px 0}.expand summary:hover{text-decoration:none}
 .controls{font-size:14px;color:var(--secondary);flex-wrap:wrap;gap:10px}.controls button{color:#1756a9;border-color:#a9bfdc;border-radius:6px;background:#fff;font-size:14px;padding:7px 14px;min-height:38px}.controls button:hover{background:#edf3ff}.controls button[aria-pressed=true]{background:#1756a9;border-color:#1756a9;color:#fff}
 .mechanism{font-size:14px;color:var(--accent);gap:8px}.mechanism span{background:var(--tint);border:1px solid var(--soft);padding:7px 12px;border-radius:6px}
 .mini{background:#f4f2fc;border:1px solid #ddd6f1;padding:17px;border-radius:8px}.mini small{font-size:14px;color:#4b4565}.mini b{color:#6843a5;font-size:25px}.mini .sub{font-size:13px;color:#514c65}.mini.warm{background:#fff5e9;border-color:#efd9bc}.mini.warm small,.mini.warm .sub{color:#6d4c2c}.mini.warm b{color:#96500b}.dots i{background:#7e71b1}.mini.warm .dots i{background:#bd854d}.dots i.faded,.mini.warm .dots i.faded{background:#e1e3e8}
-.bottom{font-size:14px;line-height:1.8;color:var(--secondary);border-color:var(--border)}.bottom a,.footer a{color:#1756a9;text-decoration:underline;text-underline-offset:3px}.footer{font-size:13px;line-height:1.9;color:var(--secondary)}
+.bottom{font-size:14px;line-height:1.8;color:var(--secondary);border-color:var(--border)}.bottom a,.footer a{color:#1756a9;text-decoration:none;text-underline-offset:3px}.footer{font-size:13px;line-height:1.9;color:var(--secondary)}
 @media(min-width:851px){
  .top{position:sticky;top:0;z-index:20;padding:0 24px;height:66px}
  .shell{max-width:none;margin:0;padding:34px 42px 60px calc(var(--sidebar-width) + 44px)}

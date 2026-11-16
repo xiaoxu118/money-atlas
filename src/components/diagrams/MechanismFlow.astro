@@ -1,0 +1,102 @@
+---
+interface Props {
+  items: string[];
+  caption?: string;
+}
+const {
+  items,
+  caption = '沿箭头看清各环节怎样相连。图中描述机制与条件，不表示必然结果。',
+} = Astro.props;
+const wrap = (value: string, size: number) =>
+  Array.from({ length: Math.ceil(value.length / size) }, (_, index) =>
+    value.slice(index * size, (index + 1) * size),
+  );
+const wideWidth = items.length * 190 - 30;
+const mobileHeight = items.length * 100 - 18;
+---
+
+<figure class="mechanism-figure">
+  <svg
+    class="figure-wide"
+    viewBox={`0 0 ${wideWidth} 125`}
+    role="img"
+    aria-label={items.join('，然后，')}
+  >
+    {items.map((item, index) => (
+      <g>
+        <rect
+          x={index * 190 + 1}
+          y="15"
+          width="158"
+          height="96"
+          rx="14"
+          fill="var(--soft)"
+          stroke="var(--line)"
+        />
+        <text
+          x={index * 190 + 80}
+          y={wrap(item, 7).length > 1 ? 53 : 68}
+          text-anchor="middle"
+          fill="var(--ink)"
+          font-size="18"
+        >
+          {wrap(item, 7).map((line, i) => (
+            <tspan x={index * 190 + 80} dy={i === 0 ? 0 : 26}>
+              {line}
+            </tspan>
+          ))}
+        </text>
+        {index < items.length - 1 && (
+          <path
+            d={`M${index * 190 + 164} 63 h20 m-7 -6 l7 6 -7 6`}
+            fill="none"
+            stroke="var(--accent)"
+            stroke-width="2"
+          />
+        )}
+      </g>
+    ))}
+  </svg>
+  <svg
+    class="figure-narrow"
+    viewBox={`0 0 340 ${mobileHeight}`}
+    role="img"
+    aria-label={items.join('，然后，')}
+  >
+    {items.map((item, index) => (
+      <g>
+        <rect
+          x="10"
+          y={index * 100 + 1}
+          width="320"
+          height="76"
+          rx="12"
+          fill="var(--soft)"
+          stroke="var(--line)"
+        />
+        <text
+          x="170"
+          y={index * 100 + (wrap(item, 16).length > 1 ? 29 : 44)}
+          text-anchor="middle"
+          fill="var(--ink)"
+          font-size="17"
+        >
+          {wrap(item, 16).map((line, i) => (
+            <tspan x="170" dy={i === 0 ? 0 : 25}>
+              {line}
+            </tspan>
+          ))}
+        </text>
+        {index < items.length - 1 && (
+          <path
+            d={`M170 ${index * 100 + 82} v12 m-6 -6 l6 6 6 -6`}
+            fill="none"
+            stroke="var(--accent)"
+            stroke-width="2"
+          />
+        )}
+      </g>
+    ))}
+  </svg>
+  <figcaption>{caption}</figcaption>
+</figure>

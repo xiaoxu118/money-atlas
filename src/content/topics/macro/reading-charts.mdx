@@ -1,0 +1,55 @@
+---
+{
+  'id': 'macro-reading-charts',
+  'slug': 'reading-charts',
+  'module': 'macro',
+  'group': 'reading-data',
+  'concepts': ['index-number', 'yoy', 'nominal-vs-real', 'chart-misread'],
+  'title': '经济图表中的尺度、基期与比较偏差',
+  'navTitle': '图表尺度',
+  'summary': '先检查坐标、基期、单位与比较窗口，再谈趋势和因果。',
+  'displayOrder': 280,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国劳工统计局：PPI 常见问题',
+        'url': 'https://www.bls.gov/ppi/faqs/questions-and-answers.htm',
+      },
+      {
+        'title': '美国经济分析局：GDP 的三种测量视角',
+        'url': 'https://www.bea.gov/news/blog/2025-06-03/expenditures-approach-measuring-gdp',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['检查对象与单位', '查看坐标和基期', '统一比较窗口', '再解释变化']}
+/>
+
+## 机制分析
+
+截断纵轴能放大小差异，改变起点能改变视觉印象；这些画法未必都错误，但必须把坐标和口径说清。同比、环比与指数水平也不是同一个量。
+
+## 关键口径与风险分解
+
+| 读图项 | 要问的问题             | 常见误读             |
+| ------ | ---------------------- | -------------------- |
+| 纵轴   | 是否从零开始或使用对数 | 把视觉高度当变化比例 |
+| 同比   | 与去年同期相比多少     | 当作本月相对上月     |
+| 指数   | 基期和权重是什么       | 把点数当货币金额     |
+
+## 情景核对
+
+指数从 100 到 110，再到 121，两期增长都为 10%；第二期增加 11 点，不说明百分比增速也从 10% 变成 11%。
+
+## 进一步分析
+
+对数纵轴强调相对变化，线性纵轴强调绝对差额，二者用途不同。因果分析还需处理共同趋势、反向作用与遗漏变量；两条曲线在图上同时上行，尚不足以建立经济解释。
+
+## 理解的边界
+
+数值为示例。相关走势不证明因果；涉及图表截断与对数刻度时应同时提供可读数值。

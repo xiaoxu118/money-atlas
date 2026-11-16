@@ -1,0 +1,52 @@
+---
+{
+  'id': 'investing-private-equity',
+  'slug': 'private-equity',
+  'module': 'investing',
+  'group': 'structures',
+  'concepts': ['private-equity', 'venture-capital', 'lock-up', 'j-curve'],
+  'title': '私募股权的出资、估值与退出周期',
+  'navTitle': '私募股权',
+  'summary': '沿出资、投资、经营、退出与分配追踪资金，不把估值当作已经到账。',
+  'displayOrder': 540,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：私募股权基金',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/private-investment-funds/private-equity',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['承诺与缴款', '投资和经营支持', '估值与退出', '现金分配']}
+/>
+
+## 机制分析
+
+私募股权常投向不易交易的企业，风险投资更侧重创业与成长不确定性。投资人可能承诺资金后分期缴付，早期费用与投资支出使现金流先负后正。
+
+## 关键口径与风险分解
+
+| 阶段 | 观察什么             | 潜在问题           |
+| ---- | -------------------- | ------------------ |
+| 缴付 | 出资通知与承诺余额   | 资金调度不足       |
+| 持有 | 企业经营与估值依据   | 估值主观、信息滞后 |
+| 退出 | 出售、上市或回购安排 | 窗口和买家不确定   |
+| 分配 | 费用与收益分成       | 账面收益未兑现     |
+
+## 情景核对
+
+投出 100 后账面估值升到 150，若未出售和分配，账户可用现金并未因此多出 50。J 曲线只是某类现金流形态，不保证后期转正。
+
+## 进一步分析
+
+IRR 容易受较早分配与认缴调用时点影响，不能替代资金倍数和剩余价值核对。未退出估值、基金层融资和分配瀑布共同影响投资人回报，应与企业层经营改善分别归因。
+
+## 理解的边界
+
+锁定期、退出和合格投资者范围因基金与地区而异。非上市估值变化较慢，不代表真实经济风险较低。

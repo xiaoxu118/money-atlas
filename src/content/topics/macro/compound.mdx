@@ -1,0 +1,53 @@
+---
+{
+  'id': 'macro-compound',
+  'slug': 'compound',
+  'module': 'macro',
+  'group': 'rates-time',
+  'concepts': ['compound-interest', 'present-value', 'annualized-rate'],
+  'title': '复利、现值与年化口径的现金流分析',
+  'navTitle': '复利与现值',
+  'summary': '把单利、复利、现值与年化放在同一个固定利率例子里比较。',
+  'displayOrder': 60,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：投资与收益来源',
+        'url': 'https://www.investor.gov/introduction-investing',
+      },
+      {
+        'title': '美国 SEC 投资者教育：金融术语',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/glossary',
+      },
+    ],
+}
+---
+
+import TopicVisual from '../../../components/diagrams/TopicVisual.astro';
+
+<TopicVisual kind="compound" />
+
+## 机制分析
+
+单利仅对原始本金计息；复利把已产生的利息加入下一期本金。现值则把未来金额按指定折现率折回今天，两者是时间方向相反的计算。
+
+## 关键口径与风险分解
+
+| 口径     | 公式                | 假设               |
+| -------- | ------------------- | ------------------ |
+| 单利终值 | P × (1 + r × n)     | 仅原始本金计息     |
+| 复利终值 | P × (1 + r)ⁿ        | 每年计息一次并留存 |
+| 现值     | 未来金额 ÷ (1 + r)ⁿ | 折现率、期限一致   |
+
+## 情景核对
+
+本金 10,000 元、年利率 5%、10 年：单利终值 15,000 元，年复利终值约 16,288.95 元。三年累计增长 33.1%，几何年化为 10%，不能直接除以三。
+
+## 进一步分析
+
+存在中途投入与提款时，期末金额不再足以识别投资能力。时间加权与资金加权收益回答不同问题；折现率还必须与名义或实际现金流、币种和风险层级匹配，不能仅因公式相似而混用。
+
+## 理解的边界
+
+固定正收益是计算假设，不是实际回报承诺。现金流发生时间、计息频率、费用和亏损都会改变结果。

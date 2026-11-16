@@ -1,0 +1,57 @@
+---
+{
+  'id': 'macro-central-bank',
+  'slug': 'central-bank',
+  'module': 'macro',
+  'group': 'policy',
+  'concepts':
+    ['central-bank', 'policy-rate', 'reserve-ratio', 'open-market', 'qe'],
+  'title': '中央银行工具与资产负债表操作',
+  'navTitle': '央行工具',
+  'summary': '分清政策利率、流动性操作、准备金要求与资产购买的作用对象。',
+  'displayOrder': 200,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': 'IMF：货币政策如何影响价格与产出',
+        'url': 'https://www.imf.org/en/Publications/fandd/issues/Series/Back-to-Basics/monetary-policy',
+      },
+      {
+        'title': '英格兰银行：现代经济中的货币创造',
+        'url': 'https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['选择政策工具', '改变金融条件', '影响融资与预期', '传到经济活动']}
+/>
+
+## 机制分析
+
+央行通过价格、数量和沟通工具影响金融条件。买入资产时，其资产端和准备金等负债端通常同步变化；这不同于直接把同额净财富发给公众。
+
+## 关键口径与风险分解
+
+| 工具         | 主要作用对象             | 不能等同             |
+| ------------ | ------------------------ | -------------------- |
+| 政策利率     | 相关短期资金价格         | 所有贷款同步同幅变化 |
+| 公开市场操作 | 准备金与短期流动性       | 每次都意味着永久宽松 |
+| 准备金要求   | 特定存款等的准备金约束   | 固定倍数创造贷款     |
+| 资产购买     | 央行资产负债表与期限风险 | 无条件增加公众净财富 |
+
+## 情景核对
+
+央行从银行买入账面价值 100 的债券：简化为央行债券资产与准备金负债各增 100，银行把债券换成准备金。
+
+## 进一步分析
+
+央行资产购买同时改变资产持有结构与准备金负债。准备金增加并不等于银行必然新增同额贷款；贷款供给还受到资本、风险回报和需求约束，公众是否增加支出则是另一环节。
+
+## 理解的边界
+
+具体工具、交易对手和操作框架因国家而异。操作数量和政策立场不能仅凭一个数字判断。

@@ -1,0 +1,52 @@
+---
+{
+  'id': 'investing-disclosure',
+  'slug': 'disclosure',
+  'module': 'investing',
+  'group': 'risk-compliance',
+  'concepts': ['prospectus', 'suitability', 'disclosure'],
+  'title': '信息披露、利益冲突与适当性约束',
+  'navTitle': '信息披露',
+  'summary': '披露说明产品是什么，适当性讨论它与投资者约束是否匹配。',
+  'displayOrder': 570,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：阅读招募说明书的目标、策略与风险',
+        'url': 'https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins/how-read-2',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['识别发行主体', '阅读策略与风险', '核对费用和退出', '匹配自身约束']}
+/>
+
+## 机制分析
+
+招募说明书和发行文件提供目标、策略、费用、风险及退出安排。风险等级和销售问卷不能替代阅读合同，也不能保证产品不会亏损。
+
+## 关键口径与风险分解
+
+| 文件部分   | 需要找的答案       | 易忽略处         |
+| ---------- | ------------------ | ---------------- |
+| 投资目标   | 追踪或实现什么     | 目标不是承诺     |
+| 策略与风险 | 怎样赚、怎样亏     | 杠杆与集中暴露   |
+| 费用       | 何时按什么基础计提 | 多层重复收费     |
+| 退出与估值 | 按何价、何时可退出 | 暂停、折价与门槛 |
+
+## 情景核对
+
+一种资产账面波动低，但需锁定五年；对一年后必须使用的资金，其期限约束仍可能不匹配。
+
+## 进一步分析
+
+充分披露不能自动消除利益冲突。销售报酬、关联交易、估值权与退出限制需要单独核对，产品适当性也不能被一份高风险签字表简单替代。
+
+## 理解的边界
+
+不同地区的披露与适当性义务不同。本文解释核查框架，不替特定销售行为作合规结论。

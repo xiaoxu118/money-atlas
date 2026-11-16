@@ -1,0 +1,52 @@
+---
+{
+  'id': 'investing-investment-process',
+  'slug': 'investment-process',
+  'module': 'investing',
+  'group': 'investment-basics',
+  'concepts': ['asset-allocation', 'risk-tolerance', 'horizon'],
+  'title': '投资决策中的目标、期限与约束',
+  'navTitle': '投资约束',
+  'summary': '把目标、期限、承受能力、配置与复盘放在同一张决策卡里。',
+  'displayOrder': 320,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：配置、分散与再平衡',
+        'url': 'https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['明确资金目标', '确定使用期限', '识别风险承受', '配置与复盘']}
+/>
+
+## 机制分析
+
+先描述资金用途，再判断能够承受的损失和变现限制，最后才比较工具。愿意承担风险与实际有能力承担风险并不相同。
+
+## 关键口径与风险分解
+
+| 问题       | 需要记录的信息       | 避免的混淆             |
+| ---------- | -------------------- | ---------------------- |
+| 目标       | 资金用途和币种       | 把收益率当唯一目标     |
+| 期限       | 何时可能需要资金     | 把可长期持有当必然不卖 |
+| 风险       | 损失承受与现金需求   | 只填风险偏好问卷       |
+| 配置与复盘 | 暴露、成本和判断依据 | 只比较短期输赢         |
+
+## 情景核对
+
+同样的 10 万元，一年后必须支付与可长期闲置，流动性约束不同。这里只比较约束，不据此给出具体仓位。
+
+## 进一步分析
+
+风险预算需要同时约束市场暴露与被动退出条件。表面可承受的账面回撤，可能在负债到期或收入中断时变成不可承受的现金缺口，期限与资金来源不能放在分析之外。
+
+## 理解的边界
+
+流程不能保证收益，也不是个人理财方案。生活负债、收入稳定性和所在地规则会影响实际决策。

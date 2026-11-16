@@ -3,10 +3,12 @@ import '../styles/global.css';
 interface Props {
   title: string;
   description?: string;
+  wide?: boolean;
 }
 const {
   title,
-  description = '把货币、利率与通胀画成图，用图解和能动手的实验讲清经济运行。',
+  wide = false,
+  description = '把货币、利率与通胀画成图，用图解和具体例子讲清经济运行。',
 } = Astro.props;
 const canonical = Astro.site
   ? new URL(Astro.url.pathname, Astro.site)
@@ -29,16 +31,38 @@ const canonical = Astro.site
     <header class="site-header">
       <a class="brand" href="/">
         <span>◈ 钱图</span>
-        <span class="brand-en" lang="en">Money Atlas</span>
+        <span class="brand-en" lang="en">
+          Money Atlas
+        </span>
       </a>
       <nav aria-label="主导航">
         <a
           href="/knowledge/"
           aria-current={
-            Astro.url.pathname.startsWith('/knowledge/') ? 'page' : undefined
+            Astro.url.pathname === '/knowledge/' ? 'page' : undefined
           }
         >
           知识图解
+        </a>
+        <a
+          href="/knowledge/macro/"
+          aria-current={
+            Astro.url.pathname.startsWith('/knowledge/macro/')
+              ? 'page'
+              : undefined
+          }
+        >
+          金融原理
+        </a>
+        <a
+          href="/knowledge/investing/"
+          aria-current={
+            Astro.url.pathname.startsWith('/knowledge/investing/')
+              ? 'page'
+              : undefined
+          }
+        >
+          投资
         </a>
         <a
           href="/concepts/"
@@ -48,22 +72,14 @@ const canonical = Astro.site
         >
           概念索引
         </a>
-        <a
-          href="/labs/"
-          aria-current={
-            Astro.url.pathname.startsWith('/labs/') ? 'page' : undefined
-          }
-        >
-          交互实验
-        </a>
       </nav>
     </header>
-    <main id="main">
+    <main id="main" class:list={{ 'reading-container': wide }}>
       <slot />
     </main>
     <footer class="site-footer">
       <span>钱图 Money Atlas / 先理解，再做判断</span>
-      <span>全部数字为教学示例 · 内容整理于 2026-11-16</span>
+      <span>全部数字为简化示例</span>
     </footer>
   </body>
 </html>

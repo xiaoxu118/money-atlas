@@ -1,0 +1,55 @@
+---
+{
+  'id': 'investing-cycles',
+  'slug': 'cycles',
+  'module': 'investing',
+  'group': 'macro-valuation',
+  'concepts': ['business-cycle', 'risk-premium'],
+  'title': '周期识别、市场预期与资产表现归因',
+  'navTitle': '周期归因',
+  'summary': '历史阶段与资产表现可用于解释，但不能把事后分类当作可执行预测。',
+  'displayOrder': 640,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '圣路易斯联储：收益率曲线倒挂与数据',
+        'url': 'https://fred.stlouisfed.org/blog/2018/10/the-data-behind-the-fear-of-yield-curve-inversions/',
+      },
+      {
+        'title': '美国 SEC 投资者教育：配置、分散与再平衡',
+        'url': 'https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['观察经济数据', '市场形成预期', '估值和风险补偿变化', '实际资产回报']}
+/>
+
+## 机制分析
+
+资产价格会提前反映预期，官方数据与周期确认往往滞后。即使经济方向判断正确，起始估值、政策、供给冲击和风险溢价也会改变投资结果。
+
+## 关键口径与风险分解
+
+| 观察       | 可能联系           | 需要保留的反例         |
+| ---------- | ------------------ | ---------------------- |
+| 复苏与盈利 | 经营现金流可能改善 | 改善已提前计价         |
+| 通胀与债券 | 要求收益率可能上升 | 需求走弱可能改变预期   |
+| 衰退与避险 | 资金需求可能变化   | 通胀或信用冲击同时存在 |
+
+## 情景核对
+
+同样被称作复苏的阶段，若一段由生产率改善推动、另一段伴随成本冲击，资产的现金流与折现率条件并不相同。
+
+## 进一步分析
+
+周期与资产表现的研究应使用当时可得数据，并避免用事后拐点标签选择样本。经济增长方向与资产超额收益之间，还隔着起始估值、市场预期和风险溢价。
+
+## 理解的边界
+
+不提供轮动时钟或固定资产排名。历史样本有限，相关性和政策框架会改变；事后知道的周期标签不能当时直接交易。

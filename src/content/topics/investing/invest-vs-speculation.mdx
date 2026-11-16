@@ -1,0 +1,56 @@
+---
+{
+  'id': 'investing-invest-vs-speculation',
+  'slug': 'invest-vs-speculation',
+  'module': 'investing',
+  'group': 'investment-basics',
+  'concepts': ['return-source', 'speculation', 'risk-premium'],
+  'title': '投资回报的现金流来源与价格成分',
+  'navTitle': '回报来源',
+  'summary': '区分经营现金流、合同支付和转售价格变化，辨认投资判断依据。',
+  'displayOrder': 310,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：投资与收益来源',
+        'url': 'https://www.investor.gov/introduction-investing',
+      },
+      {
+        'title': '美国 SEC 投资者教育：股票与股东权利',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['投入资金', '取得权利', '形成现金流或价格变化', '扣除成本后的回报']}
+/>
+
+## 机制分析
+
+投资与投机并非按持有天数简单划线。关键在于回报依赖什么：合同利息、经营利润、租金，还是下一位买家愿意付出的价格。两种判断都面对不确定性。
+
+## 关键口径与风险分解
+
+| 来源     | 谁支付或决定 | 主要不确定性   |
+| -------- | ------------ | -------------- |
+| 债券利息 | 发行人履约   | 偿付能力与条款 |
+| 股票分红 | 企业分配现金 | 经营和分配决策 |
+| 房产租金 | 承租人支付   | 出租率与维护   |
+| 买卖价差 | 交易对手出价 | 需求与估值     |
+
+## 情景核对
+
+买入 100 元、收到现金 3 元、卖出 105 元，未计成本总收益 8 元。其中 3 元与 5 元的来源不同，不能只看价格曲线。
+
+## 进一步分析
+
+持有期总回报需把现金分配与资本利得一起核对，并说明是否再投资。若回报主要来自估值扩张，应与经营现金流改善分别归因，避免把价格上涨全部解释成基本面兑现。
+
+## 理解的边界
+
+长期持有也可能依赖错误判断，短期交易也不自动构成违法行为。本文解释收益来源，不替具体交易定性。

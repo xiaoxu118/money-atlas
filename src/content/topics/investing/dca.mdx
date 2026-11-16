@@ -1,0 +1,55 @@
+---
+{
+  'id': 'investing-dca',
+  'slug': 'dca',
+  'module': 'investing',
+  'group': 'investment-basics',
+  'concepts': ['dca', 'volatility'],
+  'title': '定额分批与一次性投入的路径依赖',
+  'navTitle': '定投策略',
+  'summary': '分批投入改变资金暴露时点，不消除标的下跌风险。',
+  'displayOrder': 370,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：金融术语',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/glossary',
+      },
+      {
+        'title': '美国 SEC 投资者教育：投资与收益来源',
+        'url': 'https://www.investor.gov/introduction-investing',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['分期可用资金', '按规则购买份额', '累计持仓', '按同一终点估值']}
+/>
+
+## 机制分析
+
+定额投入在低价时买入更多份额、高价时买入更少。与一次性投入比较，必须匹配总资金、可用时点、闲置资金收益和评价终点。
+
+## 关键口径与风险分解
+
+| 价格路径 | 可能的分批效果   | 仍然存在的风险     |
+| -------- | ---------------- | ------------------ |
+| 先跌后涨 | 后续可买更多份额 | 最终不一定回升     |
+| 持续上涨 | 部分资金较晚进入 | 可能低于一次性投入 |
+| 持续下跌 | 份额增加         | 总资产仍可能亏损   |
+
+## 情景核对
+
+两次各投 100 元，价格分别为 10 与 5，合计 30 份，平均成本约 6.67 元；若最终价格为 4，市值仍只有 120 元。
+
+## 进一步分析
+
+定投相对一次性投入的差异，部分来自平均在场资金较少，而非相同风险敞口下凭空增加收益。比较策略时应同时报告投入时间、闲置现金收益和期末剩余现金。
+
+## 理解的边界
+
+例子未计费用与闲置资金收益。不以某条挑选路径证明所有行情下分批都更优。

@@ -1,0 +1,55 @@
+---
+{
+  'id': 'investing-risk-measures',
+  'slug': 'risk-measures',
+  'module': 'investing',
+  'group': 'investment-basics',
+  'concepts': ['volatility', 'max-drawdown', 'sharpe-ratio'],
+  'title': '波动率、最大回撤与风险调整收益',
+  'navTitle': '风险指标',
+  'summary': '分别看波动率、最大回撤与夏普，明确采样频率和比较基准。',
+  'displayOrder': 330,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：配置、分散与再平衡',
+        'url': 'https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset',
+      },
+      {
+        'title': '美国 SEC 投资者教育：对冲基金',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/private-investment-funds/hedge-funds',
+      },
+    ],
+}
+---
+
+import TopicVisual from '../../../components/diagrams/TopicVisual.astro';
+
+<TopicVisual kind="risk-measures" />
+
+## 机制分析
+
+波动率描述收益的离散程度；最大回撤观察从历史峰值到其后谷底的最大跌幅；夏普把超额收益与波动联系起来。任何一个指标都不能概括全部风险。
+
+## 关键口径与风险分解
+
+| 指标     | 问题                       | 局限                 |
+| -------- | -------------------------- | -------------------- |
+| 波动率   | 收益变化有多大             | 不区分好坏波动       |
+| 最大回撤 | 从峰值最深跌多少           | 依赖样本窗口         |
+| 夏普     | 每单位波动对应多少超额收益 | 依赖频率与无风险口径 |
+
+夏普的常见期间口径为：平均超额收益 ÷ 同频率收益波动率。年化换算需要说明采样频率和统计假设；不能把月度和年度指标直接放在一起排名。
+
+## 情景核对
+
+路径 100→120→90→110 的期末收益为 10%，峰谷回撤 25%；路径 100→103→106→110 期末同为 10%，样本内却没有回撤。
+
+## 进一步分析
+
+回撤依赖观察频率，低频估值可能隐藏期内风险。夏普依赖收益分布与采样假设，对带有流动性平滑或负偏度策略可能失真；相同夏普不意味着相同尾部损失。
+
+## 理解的边界
+
+示例只演示离散观察点。夏普不适合直接比较不同币种、杠杆或有显著尾部风险且估值平滑的策略。

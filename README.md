@@ -1,52 +1,57 @@
-# 钱图 · Money Atlas
+# 钱图 Money Atlas
 
-钱图取“钱的图解”之意，也读作“前途”；英文名 Money Atlas，取“钱的图集”，一句话说明是 See how money works。以知识查阅与交互探索为核心的金融知识网站，使用 Astro 静态生成、React 交互岛屿、TypeScript 和 MDX。
+用图表解释金融机制与投资分析。站点按主题自由查阅，内容围绕资产负债表、现金流、定价、传导与风险展开。
+
+当前涵盖 64 篇主题：金融原理 30 篇、投资 34 篇，分为 15 组；151 个概念提供双向关联。知识导航使用紧凑目录，主题页先展示 SVG 图解，再给出分析、情景和边界。左侧目录按板块、分组、主题三级组织。
 
 ## 本地开发
 
-基线为 Node.js 22.17.0（见 `.nvmrc`），CI 使用相同版本。Astro 间接依赖 `unifont` 固定为兼容的 0.7.4。
+使用 Node.js 22.17.0（`.nvmrc` 与 CI 同步）。Astro 的间接依赖 unifont 固定为兼容版本 0.7.4。
 
 ```sh
 npm ci
 npm run dev
 ```
 
-通过终端显示的本地地址访问。
+通过终端给出的本地地址访问。
 
 ```sh
-npm run check       # Astro / TypeScript
-npm test           # 金融模型与内容校验
-npm run build      # 静态构建 + 内部链接和锚点检查
+npm run check
+npm test
+npm run build
 npx playwright install chromium
-npm run test:e2e   # 独立浏览、实验操作、兼容链接、移动端
-# 使用已安装的 Chrome：PLAYWRIGHT_CHANNEL=chrome npm run test:e2e
-npm run preview    # 查看 dist/ 产物
+npm run test:e2e
+# 使用本机已安装的 Chrome：
+PLAYWRIGHT_CHANNEL=chrome npm run test:e2e
+npm run preview
 ```
 
-部署目录为 `dist/`。设置真实 `SITE_URL` 后构建以生成 canonical 和站点地图；未设置时省略域名相关输出。路由统一使用尾斜杠。
+部署目录为 `dist/`。设置真实 `SITE_URL` 后构建可生成 canonical 和站点地图；未设置时省略域名相关输出。
 
-## 内容与代码
+## 内容结构
 
-- `src/content/topics/macro/`：七篇独立的宏观知识说明，含资料来源。
-- `src/content.config.ts`：主题元数据 schema；`src/lib/topics.ts` 校验内容和索引引用，仅输出 published 内容。
-- `src/experiments/`：记账、利率与购买力三个独立实验，按需加载。
-- `src/models/`：不依赖 React、DOM 或存储的纯计算。
-- `src/components/`：主题导航、模型说明、实验步骤控制与基础控件。
-- `src/data/`：概念定义、关联主题、实验索引与链接工具。
-- `public/archive/prototype/`：原始项目快照，保留作历史参考。
+- [内容大纲](docs/outline.md)：主题范围、分组与编辑深度要求。
+- `src/data/content-map.ts`：两个板块、15 个分组、64 个主题和跨板块关联。
+- `src/content/topics/macro/`：金融原理正文。
+- `src/content/topics/investing/`：投资正文。
+- `src/data/concepts.ts`：151 个概念定义及关联主题。
+- `src/components/diagrams/`：响应式静态 SVG、曲线与账目对照表。
+- `src/models/`：金融模型及图表的固定情景数据，不依赖浏览器。
+- `src/components/navigation/`：紧凑导航与三级目录。
+- `src/lib/topics.ts`：内容、大纲、分组、概念和关联引用校验。
 
-新增主题时编写 MDX，设定唯一 ID、slug、摘要、概念引用和来源。`displayOrder` 仅影响列表展示位置；主题可独立打开，没有先后阅读要求。草稿设为 `status: draft`；模型公式实现放在 `src/models/`。
+每篇 MDX 保留唯一 ID、module、slug、title、navTitle、group、summary、concepts、displayOrder、status、sources。标题直接指出分析对象，避免启蒙式问题；navTitle 是左侧目录使用的短标签。图解放在正文说明之前，定量图标明单位和假设。草稿不生成主题路由，显示顺序不代表阅读要求。
 
 ## 页面入口
 
-- `/knowledge/`：知识图解。
-- `/knowledge/macro/`：宏观主题。
-- `/knowledge/macro/[slug]/`：独立主题与相关实验。
+- `/knowledge/`：全部知识导航。
+- `/knowledge/macro/`：金融原理目录。
+- `/knowledge/investing/`：投资目录。
+- `/knowledge/[module]/[slug]/`：独立图解与分析。
 - `/concepts/`：可筛选的概念索引。
-- `/labs/`：实验入口。
 
-旧 HTML 入口、七个章节锚点及此前的 `/learn/` 地址保留兼容跳转，不出现在主导航或知识索引中。无 JavaScript 时提供可点击的目标链接。
+旧 HTML 与原七篇 `/learn/macro/` 地址保留片段兼容跳转；`/labs/` 跳转至知识导航。历史地址不进入站点地图。原项目快照保留在 `public/archive/prototype/`，不作为正式内容入口。
 
-当前站点不读取或写入旧进度数据；浏览器中已有的历史键原样保留。动态效果遵循系统的减少动态效果设置。
+当前站点无课程、完成记录、实验、播放或重置控件，不读取写入旧进度，不显示更新时间。全部图解与正文在构建时输出，无 JavaScript 也能阅读；概念筛选与目录折叠分别使用轻量脚本和原生 HTML。
 
-内容规划见[内容大纲](docs/outline.md)；[架构说明](docs/architecture.md)与[实施记录](docs/migration.md)记录当前结构与验证情况。所有数字均为简化示例，机制情景明确条件与时滞，不提供虚构的精确预测。
+[架构说明](docs/architecture.md)与[实施记录](docs/migration.md)记录实现和验证。数字均为条件明确的简化情景，不推荐具体产品或预测价格；来源中的地区制度不自动适用于其他地区。

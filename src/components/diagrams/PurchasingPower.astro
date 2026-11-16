@@ -1,0 +1,39 @@
+---
+import { purchasingPower, money } from '../../models/finance';
+---
+
+<section class="diagram-panel" id="purchasing-power">
+  <h2>固定预算的购买力对照</h2>
+  <p>假设每年通胀率固定为 3%，预算保持 100 元。</p>
+  <table>
+    <thead>
+      <tr>
+        <th scope="col">经过年数</th>
+        <th scope="col">原来 100 元的商品现价</th>
+        <th scope="col">现在 100 元折合原来购买力</th>
+      </tr>
+    </thead>
+    <tbody>
+      {[0, 5, 10, 20, 30].map((years) => {
+        const result = purchasingPower(100, 3, years);
+        return (
+          <tr>
+            <th scope="row">{years} 年</th>
+            <td>{money(result.futurePrice)}</td>
+            <td>{money(result.realValue)}</td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+  <p>
+    未来价格 = 100 × (1 + 年通胀率)<sup>年数</sup>；实际购买力 = 100 ÷ (1 +
+    年通胀率)<sup>年数</sup>。
+  </p>
+  <aside class="model-note">
+    <strong>模型边界</strong>
+    <p>
+      固定比率仅用于解释购买力变化，不是通胀预测。未考虑收入、利息与消费结构变化，金额四舍五入至分。
+    </p>
+  </aside>
+</section>

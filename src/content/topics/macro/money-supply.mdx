@@ -1,0 +1,60 @@
+---
+{
+  'id': 'macro-money-supply',
+  'slug': 'money-supply',
+  'module': 'macro',
+  'group': 'money-accounts',
+  'concepts': ['money-supply', 'central-bank'],
+  'title': '货币总量的部门边界与统计口径',
+  'navTitle': '货币总量',
+  'summary': '货币总量按流动性与持有人范围划分，不同经济体的同名指标也可能不同。',
+  'displayOrder': 40,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '欧洲央行：货币总量的统计口径',
+        'url': 'https://data.ecb.europa.eu/methodology/what-are-monetary-aggregates',
+      },
+      {
+        'title': '英格兰银行：现代经济中的货币创造',
+        'url': 'https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={[
+    '确定发行与持有部门',
+    '划定支付能力与流动性',
+    '汇总合格负债',
+    '比较同一口径',
+  ]}
+/>
+
+## 机制分析
+
+货币总量是统计口径，不是一台印钞机的产量。越宽的口径通常包含更多可转换为支付手段的金融负债，但哪些存款、持有人和工具纳入，要查统计说明。
+
+## 关键口径与风险分解
+
+| 层次   | 示意含义                 | 阅读时核对           |
+| ------ | ------------------------ | -------------------- |
+| 现金层 | 流通中的现金             | 是否排除银行库存现金 |
+| 窄口径 | 现金及较易支付的存款     | 持有人与账户范围     |
+| 宽口径 | 再加入其他合格存款或工具 | 纳入工具与期限       |
+
+## 情景核对
+
+将窄口径由 100 扩为 120，可能部分来自账户类别之间的移动；不能只凭一个增速断定新增消费或通胀。
+
+## 进一步分析
+
+比较货币增速与信贷增速，还要看统计部门是否一致，以及金融工具在部门间的重分类。存款结构迁移可能改变窄口径指标，而广义总量变化较小；统计口径的跳变不能直接解释成经济行为的跳变。
+
+## 理解的边界
+
+表格是分层思路，不是某国现行 M0/M1/M2 的完整定义。欧元区采用 M1/M2/M3，跨地区应先统一口径。

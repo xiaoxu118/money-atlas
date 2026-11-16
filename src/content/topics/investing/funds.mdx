@@ -1,0 +1,56 @@
+---
+{
+  'id': 'investing-funds',
+  'slug': 'funds',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts': ['fund', 'active-passive', 'index-fund', 'etf', 'tracking-error'],
+  'title': '基金策略、底层暴露与跟踪偏离',
+  'navTitle': '基金',
+  'summary': '基金是持有结构，风险取决于底层资产、集中度、策略与费用。',
+  'displayOrder': 420,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：共同基金',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-funds-etfs/mutual-funds',
+      },
+      {
+        'title': '美国 SEC 投资者教育：基金费用与开支',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/glossary/mutual-fund-fees-and-expenses',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['资金汇集', '按策略持有资产', '计算份额净值', '扣费与分配']}
+/>
+
+## 机制分析
+
+主动基金按策略选择资产，被动基金通常跟踪指定指数。ETF 主要描述交易与组织形式，并非自动等于低风险或被动投资；多只基金也可能持有相同股票。
+
+## 关键口径与风险分解
+
+| 观察点     | 需要查看             | 常见误会           |
+| ---------- | -------------------- | ------------------ |
+| 投资范围   | 股票、债券或其他资产 | 都叫基金就风险相同 |
+| 策略       | 主动选择或指数跟踪   | 被动基金不会下跌   |
+| 交易方式   | 场内或申购赎回       | 市场价永远等于净值 |
+| 费用与偏离 | 费用率与跟踪误差     | 费用就是全部差距   |
+
+## 情景核对
+
+两只基金各占组合一半，若都持有同一股票 20%，组合对该股票的直接穿透暴露仍为 20%，没有因基金数量翻倍而减半。
+
+## 进一步分析
+
+ETF 折溢价、指数跟踪差额和跟踪误差是不同概念。比较基金时应统一分红再投资与费用口径，并辨认衍生品、证券借贷及现金拖累，而不是仅比较名字相同的指数标签。
+
+## 理解的边界
+
+不推荐具体基金；指数也有编制和集中风险。关于穿透方法可查看关联主题。

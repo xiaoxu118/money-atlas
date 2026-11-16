@@ -1,0 +1,55 @@
+---
+{
+  'id': 'macro-inflation-measurement',
+  'slug': 'inflation-measurement',
+  'module': 'macro',
+  'group': 'prices-inflation',
+  'concepts': ['cpi', 'core-inflation', 'ppi'],
+  'title': 'CPI、核心通胀与生产者价格的口径差异',
+  'navTitle': '通胀口径',
+  'summary': '先看消费者与生产者视角，再看权重和剔除项目，避免把不同指标混为一谈。',
+  'displayOrder': 110,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国劳工统计局：CPI 常见问题',
+        'url': 'https://www.bls.gov/cpi/questions-and-answers.htm',
+      },
+      {
+        'title': '美国劳工统计局：PPI 常见问题',
+        'url': 'https://www.bls.gov/ppi/faqs/questions-and-answers.htm',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['选择统计对象', '设定篮子与权重', '汇总价格变化', '解释指标含义']}
+/>
+
+## 机制分析
+
+CPI 追踪居民消费篮子的价格，PPI 从生产者销售价格观察变化。核心通胀按特定方法剔除或弱化部分波动项目；它不是居民实际账单的替代品。
+
+## 关键口径与风险分解
+
+| 指标     | 主要观察对象           | 不等于               |
+| -------- | ---------------------- | -------------------- |
+| CPI      | 居民消费价格           | 每个家庭的实际涨幅   |
+| 核心通胀 | 按定义处理部分波动项目 | 生活中这些开销不存在 |
+| PPI      | 生产者销售价格         | 未来 CPI 的必然涨幅  |
+
+## 情景核对
+
+假设篮子食品权重 40%、其他 60%，价格分别上涨 10% 和 0%，固定权重示意涨幅为 4%；不是两项涨幅的简单平均 5%。
+
+## 进一步分析
+
+把固定篮子价格涨幅加权得到的是简化指数。正式指数可能链式更新权重并作质量调整；比较总体与核心指标时，既要解释剔除项目，也要避免把暂时冲击误写成长期趋势。
+
+## 理解的边界
+
+权重为教学假设。核心指标和 PPI 的覆盖范围因经济体而异，PPI 向消费价格传导还受利润和竞争影响。

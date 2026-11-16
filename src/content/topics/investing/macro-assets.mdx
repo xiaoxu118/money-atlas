@@ -1,0 +1,56 @@
+---
+{
+  'id': 'investing-macro-assets',
+  'slug': 'macro-assets',
+  'module': 'investing',
+  'group': 'macro-valuation',
+  'concepts': ['interest-rate', 'inflation', 'exchange-rate', 'discount-rate'],
+  'title': '宏观冲击经现金流与折现率传向资产',
+  'navTitle': '宏观传导',
+  'summary': '把折现率、现金流、信用与汇率渠道分别看，再考虑市场已提前计价。',
+  'displayOrder': 620,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': 'IMF：货币政策如何影响价格与产出',
+        'url': 'https://www.imf.org/en/Publications/fandd/issues/Series/Back-to-Basics/monetary-policy',
+      },
+      {
+        'title': '芝加哥联储：哪些因素影响黄金价格',
+        'url': 'https://www.chicagofed.org/publications/chicago-fed-letter/2021/464',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['政策与经济信息', '利率和汇率条件', '现金流与风险补偿', '资产价格']}
+/>
+
+## 机制分析
+
+利率变化既影响折现，也可能传递增长或通胀信息。资产价格反映预期，已被预料到的政策与意外变化可能带来不同反应。
+
+## 关键口径与风险分解
+
+| 资产         | 可能渠道           | 方向为何不固定           |
+| ------------ | ------------------ | ------------------------ |
+| 固定利率债券 | 收益率变化影响现值 | 信用利差也会变化         |
+| 股票         | 折现率与经营预期   | 盈利改善可能抵消折现压力 |
+| 贵金属       | 实际利率和币种     | 风险需求与供需另有影响   |
+| 外币资产     | 本地回报和汇率     | 两个因素可能相互抵消     |
+
+## 情景核对
+
+若要求收益率提高，同时企业预期现金流也上调，股票估值不能只根据利率一项判断方向。
+
+## 进一步分析
+
+宏观变量变化要区分需求、供给与政策反应来源。同样的利率上行，若由增长预期改善或通胀风险上升驱动，对盈利、信用利差和风险溢价的影响可能不同。
+
+## 理解的边界
+
+这是条件性机制图，不是加息买卖清单。更多基础原理见利率、政策传导与汇率主题。

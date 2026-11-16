@@ -1,0 +1,55 @@
+---
+{
+  'id': 'investing-convertible-bonds',
+  'slug': 'convertible-bonds',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts': ['convertible-bond', 'conversion-premium'],
+  'title': '可转债的债性、转股价值与嵌入条款',
+  'navTitle': '可转债',
+  'summary': '把合同债务与转换权利拆开，辨认转股价值、溢价和赎回条款。',
+  'displayOrder': 400,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': 'FINRA：债券特征、收益率与风险核查',
+        'url': 'https://syndication.finra.org/content/bond-investing-and-due-diligence',
+      },
+      {
+        'title': '美国 SEC 投资者教育：股票与股东权利',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['债务现金流', '附加转换权利', '比较转股价值', '检查赎回与稀释']}
+/>
+
+## 机制分析
+
+可转债按条款允许将债权转换成股份，价格同时受信用、利率、股价和转换条款影响。债底是基于信用和折现假设的估值概念，不是保证最低成交价。
+
+## 关键口径与风险分解
+
+| 项目     | 计算或含义              | 主要变量     |
+| -------- | ----------------------- | ------------ |
+| 转股数量 | 面值 ÷ 转股价           | 转股价格调整 |
+| 转股价值 | 转股数量 × 股价         | 股票市场价格 |
+| 转股溢价 | 转债价格 ÷ 转股价值 − 1 | 两种市场价格 |
+
+## 情景核对
+
+面值 100、转股价 10，对应 10 股；股价 9 时转股价值 90。转债价 108，对应转股溢价 20%，不是保证获得 20% 收益。
+
+## 进一步分析
+
+可转债价格对正股的敏感性会随转股价值、剩余期限与条款改变。强赎可能截断持有选择，信用恶化又可能削弱所谓债底，因此不能将其简单视为债券收益加免费股票上涨空间。
+
+## 理解的边界
+
+未计利息和交易费用。赎回、回售、下修及违约条款依发行文件，不能把股票上涨机械映射为转债同比上涨。

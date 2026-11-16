@@ -1,0 +1,30 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import TopicList from './TopicList.astro';
+import { modules, type TopicModule } from '../../data/content-map';
+interface Props {
+  module: TopicModule;
+}
+const { module } = Astro.props;
+const data = modules.find((m) => m.id === module)!;
+---
+
+<SiteLayout title={data.title} description={data.summary}>
+  <section class="page-heading">
+    <a href="/knowledge/">← 全部知识图解</a>
+    <h1>{data.title}</h1>
+    <p class="lead">{data.summary} 按关心的问题自由查阅。</p>
+    <div class="controls module-switch">
+      {modules.map((m) => (
+        <a
+          class="text-link"
+          href={`/knowledge/${m.id}/`}
+          aria-current={module === m.id ? 'page' : undefined}
+        >
+          {m.title}
+        </a>
+      ))}
+    </div>
+  </section>
+  <TopicList module={module} />
+</SiteLayout>

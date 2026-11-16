@@ -1,0 +1,51 @@
+---
+{
+  'id': 'investing-real-estate',
+  'slug': 'real-estate',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts': ['rental-yield', 'leverage', 'liquidity', 'reit'],
+  'title': '房地产现金流、杠杆与 REITs 估值',
+  'navTitle': '房地产',
+  'summary': '从空置、维护、融资与退出成本走到净现金流，区分直接持有与 REITs。',
+  'displayOrder': 450,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：REITs',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/real-estate-investment-trusts-reits',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['租金收入', '空置与运营支出', '融资和税费', '投资者净现金流']}
+/>
+
+## 机制分析
+
+房地产回报包含租金和价格变化。REITs 让投资者通过证券结构分享相关资产现金流，但具体资产类型、负债、分配政策和交易方式决定风险。
+
+## 关键口径与风险分解
+
+| 口径         | 分子                           | 容易遗漏       |
+| ------------ | ------------------------------ | -------------- |
+| 毛租金收益率 | 全年合同租金                   | 空置和费用     |
+| 净租金收益率 | 扣除相关运营成本的租金         | 资本性支出与税 |
+| 权益回报     | 权益持有人的净现金流与价格变化 | 杠杆与退出成本 |
+
+## 情景核对
+
+房价 100 万、年租金 4 万，毛租金收益率 4%；若空置与运营成本合计 1 万，未计融资税费的净租金只有 3 万。
+
+## 进一步分析
+
+直接物业的净营业收入与持有人的税后现金流之间，还隔着资本开支、融资和税。REITs 证券价格会随折现率与资本结构调整，底层租金暂稳不意味着二级市场价格稳定。
+
+## 理解的边界
+
+不引用当地税率或统一分红比例。上市与非上市 REITs 的流动性不同，房产估值平滑也不等于没有风险。

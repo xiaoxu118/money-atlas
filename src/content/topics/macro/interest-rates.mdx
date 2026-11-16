@@ -2,11 +2,11 @@
 {
   'id': 'macro-interest-rates',
   'slug': 'interest-rates',
-  'title': '利率：使用资金的价格',
+  'title': '利率定价、期限结构与实际融资成本',
+  'navTitle': '利率定价',
   'module': 'macro',
-  'summary': '用一年单利理解贷款成本，再区分名义利率、实际利率和政策传导。',
+  'summary': '匹配币种、期限、信用和现金流口径，分析名义利率、实际利率及融资风险补偿。',
   'concepts': ['interest-rate', 'real-interest'],
-  'updatedAt': '2026-11-16',
   'status': 'published',
   'sources':
     [
@@ -19,25 +19,26 @@
         'url': 'https://books.core-econ.org/the-economy/en/index.html',
       },
     ],
-  'displayOrder': 40,
+  'displayOrder': 50,
+  'group': 'rates-time',
 }
 ---
 
-import InterestRates from '../../../experiments/interest-rates/InterestRates';
+import TopicVisual from '../../../components/diagrams/TopicVisual.astro';
 
-## 问题从这里开始
+import InterestRates from '../../../components/diagrams/InterestRates.astro';
 
-同样借 10,000 元，一年后还款，年利率从 3% 变为 6%，利息会差多少？
+<TopicVisual kind="interest-rates" />
 
-## 利率连接今天与未来
+## 先确定利率对应的合同与现金流
 
-借款人支付利息，提前使用资金；储蓄者获得利息，推迟使用资金。不同期限、风险和合同的利率不同，贷款利率和存款利率通常也不同。
+比较融资成本，需要同时匹配币种、期限、信用、抵押条件、计息频率与费用。不同期限、风险和合同的利率不宜直接作单因果比较；贷款利率、存款利率和政策利率对应的交易关系也不同。
 
-<InterestRates client:visible />
+<InterestRates />
 
-## 结果解释
+## 现金流口径与重定价
 
-本金 10,000 元、年利率 3%，一年利息为 300 元；年利率 6% 时为 600 元，相差 300 元。实验的控制杆调整的是**示例贷款年利率**。
+本金 10,000 元、年利率 3%，一年利息为 300 元；年利率 6% 时为 600 元，相差 300 元。这里对比的是**示例贷款年利率**。
 
 固定利率贷款在约定期内不一定随政策利率即时调整；分期房贷还需要考虑每期本金余额，不能套用到期还本的结果当月供。
 
@@ -50,3 +51,7 @@ import InterestRates from '../../../experiments/interest-rates/InterestRates';
 ## 模型边界
 
 政策利率经过市场融资和银行定价，才影响个人贷款利率。较长期利率还受未来利率预期、通胀预期和风险溢价等影响。较高融资成本可能抑制新增借款，但作用存在时滞，不是直接控制物价的开关。
+
+## 风险补偿与实际利率的衔接
+
+市场利率可从预期通胀、预期实际利率及期限、信用和流动性等补偿理解，但这不是无条件精确相加的观测公式。对现金流进行折现时，币种、期限和名义／实际口径必须一致。分期贷款比较还应按实际净放款和各期支付求有效成本，不能只比较宣传年利率。

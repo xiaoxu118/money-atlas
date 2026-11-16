@@ -1,0 +1,331 @@
+---
+import StaticChart from './StaticChart.astro';
+import { charts } from '../../models/catalog-charts';
+import MechanismFlow from './MechanismFlow.astro';
+interface Props {
+  kind: string;
+}
+const { kind } = Astro.props;
+const flows: Record<string, { items: string[]; caption: string }> = {
+  policy: {
+    items: [
+      '政策利率与政策信号',
+      '市场融资和银行定价',
+      '借贷、储蓄与支出选择',
+      '需求与价格压力',
+    ],
+    caption:
+      '每个箭头都受合同、收入预期与供需条件影响，并有时滞；不是物价开关。',
+  },
+  case: {
+    items: [
+      '贷款：资产负债同步扩张',
+      '支付：存款与结算资产迁移',
+      '生产：形成增加值与收入',
+      '偿债：贷款与存款相应收缩',
+    ],
+    caption:
+      '从融资、支付、生产到偿债，分别核对金融账户与实体交易。下方账目为简化金额示例。',
+  },
+};
+---
+
+{charts[kind] && <StaticChart {...charts[kind]} />}
+{flows[kind] && <MechanismFlow {...flows[kind]} />}
+{kind === 'money' && (
+  <figure class="knowledge-illustration">
+    <svg
+      viewBox="0 0 360 245"
+      role="img"
+      aria-label="银行发放一万元贷款，贷款资产与客户存款负债同时增加一万元，银行权益不因这笔记账直接增加。"
+    >
+      <rect x="10" y="15" width="160" height="125" rx="15" fill="var(--soft)" />
+      <rect x="190" y="15" width="160" height="125" rx="15" fill="#f2e8d9" />
+      <circle
+        cx="90"
+        cy="50"
+        r="19"
+        fill="none"
+        stroke="var(--accent)"
+        stroke-width="2"
+      />
+      <text
+        x="90"
+        y="57"
+        text-anchor="middle"
+        font-size="20"
+        fill="var(--accent)"
+      >
+        ¥
+      </text>
+      <path
+        d="M245 36 h48 v35 h-48 z M254 47 h29 M254 58 h19"
+        fill="none"
+        stroke="#99652b"
+        stroke-width="2"
+      />
+      <text x="90" y="97" text-anchor="middle" font-size="16" fill="var(--ink)">
+        银行贷款资产
+      </text>
+      <text
+        x="270"
+        y="97"
+        text-anchor="middle"
+        font-size="16"
+        fill="var(--ink)"
+      >
+        客户存款负债
+      </text>
+      <text
+        x="90"
+        y="122"
+        text-anchor="middle"
+        font-size="18"
+        fill="var(--accent)"
+      >
+        + 10,000 元
+      </text>
+      <text x="270" y="122" text-anchor="middle" font-size="18" fill="#99652b">
+        + 10,000 元
+      </text>
+      <path
+        d="M90 150 V170 H270 V150 M180 170 V188"
+        fill="none"
+        stroke="var(--muted)"
+        stroke-width="2"
+      />
+      <rect x="20" y="190" width="320" height="42" rx="10" fill="var(--ink)" />
+      <text x="180" y="217" text-anchor="middle" fill="white" font-size="16">
+        发放时银行权益变化 = 0
+      </text>
+    </svg>
+    <figcaption>
+      图示忽略费用及信用损失准备。贷款发放同步扩张资产负债；资本、结算流动性与信用风险分别分析。
+    </figcaption>
+  </figure>
+)}
+{kind === 'settlement' && (
+  <figure class="knowledge-illustration">
+    <svg
+      viewBox="0 0 360 290"
+      role="img"
+      aria-label="付款银行扣减客户存款并减少结算资产，收款银行增加结算资产和客户存款。银行间通过结算安排交付最终资金。"
+    >
+      <rect x="12" y="14" width="336" height="62" rx="12" fill="var(--ink)" />
+      <text x="180" y="40" text-anchor="middle" fill="white" font-size="16">
+        央行 / 银行间结算安排
+      </text>
+      <text x="180" y="62" text-anchor="middle" fill="white" font-size="13">
+        付款行结算资产 −　收款行结算资产 +
+      </text>
+      <rect
+        x="10"
+        y="125"
+        width="155"
+        height="110"
+        rx="12"
+        fill="var(--soft)"
+      />
+      <rect
+        x="195"
+        y="125"
+        width="155"
+        height="110"
+        rx="12"
+        fill="var(--soft)"
+      />
+      <text
+        x="87"
+        y="154"
+        text-anchor="middle"
+        fill="var(--ink)"
+        font-size="17"
+      >
+        付款银行 A
+      </text>
+      <text
+        x="272"
+        y="154"
+        text-anchor="middle"
+        fill="var(--ink)"
+        font-size="17"
+      >
+        收款银行 B
+      </text>
+      <text
+        x="87"
+        y="185"
+        text-anchor="middle"
+        fill="var(--ink)"
+        font-size="14"
+      >
+        客户存款负债 −
+      </text>
+      <text
+        x="272"
+        y="185"
+        text-anchor="middle"
+        fill="var(--ink)"
+        font-size="14"
+      >
+        客户存款负债 +
+      </text>
+      <text
+        x="87"
+        y="214"
+        text-anchor="middle"
+        fill="var(--muted)"
+        font-size="13"
+      >
+        结算资产 −
+      </text>
+      <text
+        x="272"
+        y="214"
+        text-anchor="middle"
+        fill="var(--muted)"
+        font-size="13"
+      >
+        结算资产 +
+      </text>
+      <path
+        d="M87 119 V84 m-6 8 l6 -8 6 8 M272 83 V119 m-6 -8 l6 8 6 -8"
+        fill="none"
+        stroke="var(--accent)"
+        stroke-width="2"
+      />
+      <text
+        x="180"
+        y="268"
+        text-anchor="middle"
+        fill="var(--muted)"
+        font-size="14"
+      >
+        客户支付 ≠ 银行间最终结算
+      </text>
+    </svg>
+    <figcaption>
+      跨行支付同时改变客户存款和银行结算资产的分布。图示单笔总额安排，实际系统可采用净额清算等方式。
+    </figcaption>
+  </figure>
+)}
+{kind === 'production' && (
+  <figure class="knowledge-illustration">
+    <svg
+      viewBox="0 0 360 300"
+      role="img"
+      aria-label="家庭向企业提供劳动并支付消费款，企业向家庭支付工资并交付商品。实物流使用虚线，支付流使用实线。"
+    >
+      <rect x="10" y="110" width="105" height="90" rx="14" fill="var(--soft)" />
+      <rect
+        x="245"
+        y="110"
+        width="105"
+        height="90"
+        rx="14"
+        fill="var(--soft)"
+      />
+      <text
+        x="62"
+        y="150"
+        text-anchor="middle"
+        fill="var(--ink)"
+        font-size="18"
+      >
+        家庭部门
+      </text>
+      <text
+        x="298"
+        y="150"
+        text-anchor="middle"
+        fill="var(--ink)"
+        font-size="18"
+      >
+        企业部门
+      </text>
+      <text
+        x="62"
+        y="178"
+        text-anchor="middle"
+        fill="var(--muted)"
+        font-size="12"
+      >
+        收入与消费
+      </text>
+      <text
+        x="298"
+        y="178"
+        text-anchor="middle"
+        fill="var(--muted)"
+        font-size="12"
+      >
+        生产与分配
+      </text>
+      <path
+        d="M62 105 V45 H298 V105 m-6 -8 l6 8 6 -8"
+        fill="none"
+        stroke="var(--accent)"
+        stroke-width="2"
+        stroke-dasharray="6 4"
+      />
+      <text
+        x="180"
+        y="32"
+        text-anchor="middle"
+        fill="var(--ink)"
+        font-size="15"
+      >
+        劳动与生产要素 →
+      </text>
+      <path
+        d="M240 127 H120 m8 -6 l-8 6 8 6"
+        fill="none"
+        stroke="var(--accent)"
+        stroke-width="2"
+      />
+      <text
+        x="180"
+        y="108"
+        text-anchor="middle"
+        fill="var(--ink)"
+        font-size="14"
+      >
+        ← 工资等收入
+      </text>
+      <path
+        d="M240 183 H120 m8 -6 l-8 6 8 6"
+        fill="none"
+        stroke="var(--accent)"
+        stroke-width="2"
+        stroke-dasharray="6 4"
+      />
+      <text
+        x="180"
+        y="213"
+        text-anchor="middle"
+        fill="var(--ink)"
+        font-size="14"
+      >
+        ← 商品与服务
+      </text>
+      <path
+        d="M62 205 V260 H298 V205 m-6 8 l6 -8 6 8"
+        fill="none"
+        stroke="var(--accent)"
+        stroke-width="2"
+      />
+      <text
+        x="180"
+        y="287"
+        text-anchor="middle"
+        fill="var(--ink)"
+        font-size="15"
+      >
+        消费支出 →
+      </text>
+    </svg>
+    <figcaption>
+      虚线表示实际资源流，实线表示支付流。政府、金融和境外部门在本文中进一步补充，图不表示全部收入立即消费。
+    </figcaption>
+  </figure>
+)}

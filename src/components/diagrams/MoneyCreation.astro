@@ -1,0 +1,75 @@
+---
+import { moneyLedger } from '../../models/finance';
+const amount = (value: number) => value.toLocaleString('zh-CN');
+const stages = [
+  '放贷前',
+  '放贷 10,000 元',
+  '支付工资 2,000 元',
+  '员工买面包 100 元',
+  '偿还本金 1,000 元',
+];
+---
+
+<section class="diagram-panel" id="money-creation">
+  <h2>一笔贷款与两本账</h2>
+  <div class="flow-diagram">
+    <span>银行</span>
+    <span>→ 贷款 / 存款 →</span>
+    <span>面包店</span>
+    <span>⇄ 工资 / 货款 ⇄</span>
+    <span>员工</span>
+  </div>
+  <p>以下仅观察同一家银行内这笔新增业务。每一阶段均列出余额，可直接对照。</p>
+  <table>
+    <caption>银行账目，单位：元</caption>
+    <thead>
+      <tr>
+        <th scope="col">业务阶段</th>
+        <th scope="col">贷款资产</th>
+        <th scope="col">存款负债合计</th>
+      </tr>
+    </thead>
+    <tbody>
+      {stages.map((stage, i) => {
+        const ledger = moneyLedger(i);
+        return (
+          <tr>
+            <th scope="row">{stage}</th>
+            <td>{amount(ledger.bankLoan)}</td>
+            <td>{amount(ledger.bankDeposits)}</td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+  <table>
+    <caption>客户账目，单位：元</caption>
+    <thead>
+      <tr>
+        <th scope="col">业务阶段</th>
+        <th scope="col">面包店存款</th>
+        <th scope="col">员工存款</th>
+        <th scope="col">面包店债务</th>
+      </tr>
+    </thead>
+    <tbody>
+      {stages.map((stage, i) => {
+        const ledger = moneyLedger(i);
+        return (
+          <tr>
+            <th scope="row">{stage}</th>
+            <td>{amount(ledger.shopDeposit)}</td>
+            <td>{amount(ledger.employeeDeposit)}</td>
+            <td>{amount(ledger.shopDebt)}</td>
+          </tr>
+        );
+      })}
+    </tbody>
+  </table>
+  <aside class="model-note">
+    <strong>模型边界</strong>
+    <p>
+      假定同一家银行，未计利息、手续费和生产利润。放贷时贷款与存款同时增加，内部转账不改变存款合计，还本使相应贷款与存款同时减少。
+    </p>
+  </aside>
+</section>

@@ -1,0 +1,53 @@
+---
+{
+  'id': 'investing-look-through',
+  'slug': 'look-through',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts': ['look-through', 'fund-of-funds', 'layered-nesting'],
+  'title': '多层基金穿透与重复风险归集',
+  'navTitle': '基金穿透',
+  'summary': '把每层比例相乘，再将同一底层资产的多条路径相加。',
+  'displayOrder': 430,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：基金中的基金',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/glossary/fund-funds',
+      },
+      {
+        'title': '美国 SEC 投资者教育：共同基金',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-funds-etfs/mutual-funds',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow items={['组合份额', '上层基金', '下层持仓', '同一底层合并']} />
+
+## 机制分析
+
+FOF 主要投资其他基金，嵌套结构本身不说明底层更分散。穿透需沿持有链识别重复资产、杠杆、费用和赎回约束；名义持仓还可能漏掉衍生品暴露。
+
+## 关键口径与风险分解
+
+| 路径                             | 权重计算  | 底层暴露 |
+| -------------------------------- | --------- | -------- |
+| 组合 50% 在 A，A 的 40% 在股票 X | 50% × 40% | 20%      |
+| 组合 50% 在 B，B 的 20% 在股票 X | 50% × 20% | 10%      |
+| 两条路径合计                     | 20% + 10% | 30%      |
+
+## 情景核对
+
+再多一层时继续相乘：40% × 50% × 60% = 12%。若另一路也持有同一资产，应累计而不是当成不同资产。
+
+## 进一步分析
+
+市值穿透只揭示持有比例；期货等衍生品的风险暴露还需名义敞口或敏感度口径。对多层负债和杠杆应避免在不同层级重复扣除或遗漏，缺失披露应明确标记而非补成零。
+
+## 理解的边界
+
+以同一时点且无杠杆的市值权重为例。部分底层披露滞后或不完整，不能据此声称已经获得精确实时风险。

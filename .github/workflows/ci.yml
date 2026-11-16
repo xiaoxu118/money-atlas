@@ -1,4 +1,4 @@
-name: Validate learning site
+name: Validate Money Atlas
 on: [push, pull_request]
 jobs:
   validate:

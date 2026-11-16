@@ -1,0 +1,55 @@
+---
+{
+  'id': 'investing-custody',
+  'slug': 'custody',
+  'module': 'investing',
+  'group': 'risk-compliance',
+  'concepts': ['custody', 'segregated-account', 'counterparty-risk'],
+  'title': '证券持有、账户隔离与托管责任',
+  'navTitle': '证券托管',
+  'summary': '分清记录、保管、执行和清算职责，独立核对持有权利与资金去向。',
+  'displayOrder': 590,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：证券如何持有',
+        'url': 'https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-97',
+      },
+      {
+        'title': '美国 SEC 投资者教育：投资诈骗类型',
+        'url': 'https://www.investor.gov/protect-your-investments/fraud/types-fraud',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['开户与合同', '资金或证券入账', '登记与托管', '对账和退出']}
+/>
+
+## 机制分析
+
+交易入口负责接单并不表示其拥有或独立保管全部客户资产。证券登记、第三方托管与账户隔离各解决不同问题，也不能消除市场损失。
+
+## 关键口径与风险分解
+
+| 角色           | 主要职责             | 需要核对           |
+| -------------- | -------------------- | ------------------ |
+| 经纪或平台     | 受理与执行交易       | 主体资质、资金去向 |
+| 托管或保管机构 | 按安排持有与核对资产 | 名义和受益权利     |
+| 登记结算       | 记录或完成权利交收   | 账户类型与规则     |
+
+## 情景核对
+
+平台余额 100 与托管对账余额 100 只是核对起点，还要确认资产归属、是否质押和能否按规则转出；截图不是独立托管证明。
+
+## 进一步分析
+
+资产隔离的法律效果取决于账户登记、实益权、质押和适用破产规则。第三方名称出现在宣传页，不代表其已经核验全部资产或对投资损失承担保证责任。
+
+## 理解的边界
+
+隔离、赔付与破产处理取决于地区和合同。托管不能保证投资本身不亏，未知私人账户收款需要额外核查。

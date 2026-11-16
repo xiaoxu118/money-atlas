@@ -1,0 +1,18 @@
+---
+import { render } from 'astro:content';
+import { publishedTopics } from '../../../lib/topics';
+import TopicLayout from '../../../layouts/TopicLayout.astro';
+export async function getStaticPaths() {
+  const topics = await publishedTopics();
+  return topics.map((topic) => ({
+    params: { module: topic.data.module, slug: topic.data.slug },
+    props: { topic, topics },
+  }));
+}
+const { topic, topics } = Astro.props;
+const { Content } = await render(topic);
+---
+
+<TopicLayout topic={topic} topics={topics}>
+  <Content />
+</TopicLayout>

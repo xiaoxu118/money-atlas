@@ -1,0 +1,55 @@
+---
+{
+  'id': 'macro-inflation-expectations',
+  'slug': 'inflation-expectations',
+  'module': 'macro',
+  'group': 'prices-inflation',
+  'concepts': ['inflation-expectation', 'inflation'],
+  'title': '通胀预期、工资定价与实际利率',
+  'navTitle': '通胀预期',
+  'summary': '预期会进入工资谈判、定价和借贷，但预期不等于未来事实。',
+  'displayOrder': 120,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': 'IMF：货币政策如何影响价格与产出',
+        'url': 'https://www.imf.org/en/Publications/fandd/issues/Series/Back-to-Basics/monetary-policy',
+      },
+      {
+        'title': '美国劳工统计局：CPI 常见问题',
+        'url': 'https://www.bls.gov/cpi/questions-and-answers.htm',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['形成价格预期', '进入工资与合同', '影响支出和报价', '实际价格反馈']}
+/>
+
+## 机制分析
+
+企业预期成本上升时可能提前调整报价，劳动者可能要求补偿未来购买力损失。实际结果仍取决于谈判能力、合同、需求与生产能力。
+
+## 关键口径与风险分解
+
+| 预期来源 | 看见的是什么       | 可能偏差         |
+| -------- | ------------------ | ---------------- |
+| 家庭调查 | 个人感受与未来判断 | 消费篮子差异     |
+| 专业预测 | 模型与信息判断     | 模型和新冲击     |
+| 市场指标 | 交易价格中的补偿   | 流动性与风险溢价 |
+
+## 情景核对
+
+名义利率 5%、预期通胀 3%，预期实际利率约 2%；若实际通胀为 6%，事后实际购买力结果就不同。
+
+## 进一步分析
+
+通胀保值与名义债券之间的收益率差可能含通胀风险溢价和流动性差异，因此不能把整段差额都归因于平均预期。工资和租约中的指数化程度也会影响预期向实际价格的反馈强度。
+
+## 理解的边界
+
+市场隐含指标不能直接当作纯粹通胀预测。政策信誉可能稳定预期，但不能保证每次冲击都被抵消。

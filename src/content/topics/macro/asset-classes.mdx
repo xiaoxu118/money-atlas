@@ -1,0 +1,52 @@
+---
+{
+  'id': 'macro-asset-classes',
+  'slug': 'asset-classes',
+  'module': 'macro',
+  'group': 'risk-assets',
+  'concepts': ['asset-class', 'liquidity', 'nominal-vs-real'],
+  'title': '资产权利、现金流与风险暴露分类',
+  'navTitle': '资产分类',
+  'summary': '按权利、现金流和流动性辨认资产，基金则需要继续看底层。',
+  'displayOrder': 260,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：金融资产种类与风险',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['辨认持有权利', '追踪现金流', '检查变现条件', '识别底层风险']}
+/>
+
+## 机制分析
+
+资产类别不是从低到高的一条固定风险阶梯。相同名称下的信用、期限、杠杆和交易结构不同，风险也会不同。基金是组织和持有工具，底层可以跨多个类别。
+
+## 关键口径与风险分解
+
+| 类别         | 主要权利或来源       | 常见边界         |
+| ------------ | -------------------- | ---------------- |
+| 现金与存款   | 支付能力、合同利息   | 通胀与机构范围   |
+| 债券         | 债权现金流           | 信用、利率与期限 |
+| 股票         | 企业剩余权益         | 经营与估值变化   |
+| 房产与贵金属 | 使用、租金或转售价值 | 交易成本与流动性 |
+
+## 情景核对
+
+一只股票基金和一只短债基金都叫基金，却不能据此认定风险相同。分类应先看持仓，再看外包装。
+
+## 进一步分析
+
+资产类别标签与风险因子并不一一对应。股票、地产和低评级债券可能共同暴露于经济增长与融资条件；识别共同因子比简单计算产品数量更能发现组合集中度。
+
+## 理解的边界
+
+这里不提供配置比例或推荐品种。现金的名义稳定也不等于实际购买力稳定。

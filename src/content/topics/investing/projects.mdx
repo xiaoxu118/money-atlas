@@ -1,0 +1,55 @@
+---
+{
+  'id': 'investing-projects',
+  'slug': 'projects',
+  'module': 'investing',
+  'group': 'structures',
+  'concepts': ['npv', 'irr', 'due-diligence', 'exit', 'illiquidity'],
+  'title': '项目现金流、净现值与退出假设',
+  'navTitle': '项目投资',
+  'summary': '用 NPV、IRR 和回收期观察不同维度，并核对尽调与退出假设。',
+  'displayOrder': 530,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：阅读公司年度报告',
+        'url': 'https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k',
+      },
+      {
+        'title': '美国 SEC 投资者教育：私募股权基金',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/private-investment-funds/private-equity',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['初始投入', '运营现金流', '后续追加投入', '退出或残值']}
+/>
+
+## 机制分析
+
+项目不是把利润预测直接变成可用现金。净现值将各期现金流按指定折现率折回今天；IRR 是使净现值为零的折现率，复杂现金流可能无解或有多个解。
+
+## 关键口径与风险分解
+
+| 指标   | 回答什么                   | 局限                         |
+| ------ | -------------------------- | ---------------------------- |
+| NPV    | 相对指定折现率增加多少现值 | 依赖折现率和现金流           |
+| IRR    | 什么折现率使 NPV 为零      | 多次符号变化可能多解         |
+| 回收期 | 多久累计收回投入           | 可能忽略时间价值与后期现金流 |
+
+## 情景核对
+
+今天投入 100，一年后收到 110，以 5% 折现，NPV = 110 ÷ 1.05 − 100，约 4.76；单期 IRR 为 10%。
+
+## 进一步分析
+
+项目现金流与股东现金流应匹配不同折现口径：融资流不能既从现金流扣除，又在折现率中重复计入。IRR 排名还会受规模与回收时点影响，互斥项目不能只看最高 IRR。
+
+## 理解的边界
+
+收入合同、资本开支、应收账款、关联交易和退出价格都需尽调。预测值不等于已实现收益，未给具体项目投资判断。

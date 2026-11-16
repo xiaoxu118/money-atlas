@@ -1,0 +1,27 @@
+---
+import { modules, topicGroups } from '../../data/content-map';
+import { publishedTopics } from '../../lib/topics';
+const topics = await publishedTopics();
+---
+
+<div class="module-portals">
+  {modules.map((module) => (
+    <section class="module-portal">
+      <h2>
+        <a href={`/knowledge/${module.id}/`}>{module.title} →</a>
+      </h2>
+      <p>{module.summary}</p>
+      <div class="group-links">
+        {topicGroups
+          .filter((group) => group.module === module.id)
+          .map((group) => (
+            <a href={`/knowledge/${module.id}/#${group.id}`}>{group.title}</a>
+          ))}
+      </div>
+      <span class="meta">
+        {topics.filter((topic) => topic.data.module === module.id).length}{' '}
+        个独立主题
+      </span>
+    </section>
+  ))}
+</div>

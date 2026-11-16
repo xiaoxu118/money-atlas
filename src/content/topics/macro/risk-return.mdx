@@ -1,0 +1,57 @@
+---
+{
+  'id': 'macro-risk-return',
+  'slug': 'risk-return',
+  'module': 'macro',
+  'group': 'risk-assets',
+  'concepts':
+    ['risk-premium', 'volatility', 'diversification', 'opportunity-cost'],
+  'title': '风险溢价、损失分布与分散边界',
+  'navTitle': '风险溢价',
+  'summary': '风险溢价是承担不确定性的补偿要求，波动、永久损失和流动性是不同维度。',
+  'displayOrder': 250,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：金融资产种类与风险',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products',
+      },
+      {
+        'title': '美国 SEC 投资者教育：配置、分散与再平衡',
+        'url': 'https://www.investor.gov/additional-resources/general-resources/publications-research/info-sheets/beginners-guide-asset',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['识别收益来源', '识别可能损失', '比较机会成本', '观察结果分布']}
+/>
+
+## 机制分析
+
+预期收益描述事前分布，实际收益是一条已发生路径。更高风险可能对应更高补偿要求，但高风险资产仍可能出现低收益甚至本金损失。
+
+## 关键口径与风险分解
+
+| 维度       | 衡量什么           | 不能替代         |
+| ---------- | ------------------ | ---------------- |
+| 波动       | 价格变化幅度       | 全部风险         |
+| 信用风险   | 约定现金流能否兑现 | 每日价格变化     |
+| 流动性风险 | 需要卖出时能否成交 | 账面估值         |
+| 分散       | 降低部分集中风险   | 消除全部市场下跌 |
+
+## 情景核对
+
+两项资产预期收益都为 5%，一项结果集中，另一项可能在大亏与大赚之间分布。相同均值不代表相同体验或承受能力。
+
+## 进一步分析
+
+预期风险溢价与事后超额收益可能长期不一致。对带有尾部损失或卖出保险性质的头寸，平时收益平滑并不表示低风险；除均值和方差，还需要分析损失集中出现的条件。
+
+## 理解的边界
+
+这里不按资产画固定收益率或风险分数。相关性在压力时期可能变化，分散也不能保证盈利。

@@ -1,0 +1,55 @@
+---
+{
+  'id': 'macro-productivity',
+  'slug': 'productivity',
+  'module': 'macro',
+  'group': 'production-growth',
+  'concepts': ['real-economy', 'gdp'],
+  'title': '劳动生产率、资本深化与增长来源',
+  'navTitle': '生产率',
+  'summary': '把总产出拆成劳动投入与每小时产出，理解分工、资本和技术的作用。',
+  'displayOrder': 180,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国劳工统计局：劳动生产率数据修订',
+        'url': 'https://www.bls.gov/osmr/research-papers/2024/pdf/ec240020.pdf',
+      },
+      {
+        'title': '美国经济分析局：GDP 的三种测量视角',
+        'url': 'https://www.bea.gov/news/blog/2025-06-03/expenditures-approach-measuring-gdp',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['劳动与设备投入', '生产组织与技术', '实际产出', '每小时产出']}
+/>
+
+## 机制分析
+
+劳动生产率通常用实际产出除以工时。投入更多工时可以增加总产出，但不必然提高每小时产出；设备、技能、协作和技术都可能改善效率。
+
+## 关键口径与风险分解
+
+| 情形     | 产出             | 工时与效率           |
+| -------- | ---------------- | -------------------- |
+| 增加工时 | 可能增加         | 每小时产出未必变     |
+| 改善设备 | 可能增加         | 取决于设备与劳动配合 |
+| 改进分工 | 可能减少重复劳动 | 也可能增加协调成本   |
+
+## 情景核对
+
+100 小时产出 200 件，每小时 2 件；改造后 100 小时产出 250 件，每小时 2.5 件，劳动生产率提高 25%。
+
+## 进一步分析
+
+资本深化使每位劳动者使用更多资本，全要素生产率则试图刻画不能由已计量投入解释的部分。后者是依赖测量与模型的残差，不能把所有未解释增长都自动归因于技术进步。
+
+## 理解的边界
+
+件数例子忽略质量和产品结构。劳动生产率提高不代表收益必然平均分给每位劳动者。

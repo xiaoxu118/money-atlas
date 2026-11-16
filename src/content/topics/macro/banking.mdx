@@ -1,0 +1,60 @@
+---
+{
+  'id': 'macro-banking',
+  'slug': 'banking',
+  'module': 'macro',
+  'group': 'money-accounts',
+  'concepts': ['central-bank', 'deposit-insurance', 'maturity-mismatch'],
+  'title': '期限错配、流动性风险与银行资本',
+  'navTitle': '期限错配',
+  'summary': '区分流动性不足与资不抵债，理解期限错配和存款保险的作用。',
+  'displayOrder': 30,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '英格兰银行：现代经济中的货币创造',
+        'url': 'https://www.bankofengland.co.uk/quarterly-bulletin/2014/q1/money-creation-in-the-modern-economy',
+      },
+      {
+        'title': 'FDIC：银行存款流动与挤兑研究',
+        'url': 'https://www.fdic.gov/news/press-releases/2026/fdic-releases-staff-study-deposit-flows-three-failed-banks-spring-2023',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={[
+    '存款集中流出',
+    '可用流动资金减少',
+    '融资或出售资产',
+    '可能产生折价损失',
+  ]}
+/>
+
+## 机制分析
+
+银行的贷款往往较长期，而一部分存款可以随时提取。资产能收回，不代表今天就能变现；若被迫折价出售资产，流动性压力还可能转为资本损失。央行流动性支持与存款保险解决的问题也不同。
+
+## 关键口径与风险分解
+
+| 情形       | 关键问题               | 对应工具             |
+| ---------- | ---------------------- | -------------------- |
+| 流动性不足 | 眼下拿不出现金         | 流动性储备、合格融资 |
+| 资不抵债   | 资产价值不足以覆盖负债 | 资本补充、处置       |
+| 存款保险   | 合格存款受哪些保障     | 机构、账户与限额规则 |
+
+## 情景核对
+
+一家简化银行有贷款 90、现金 10、存款负债 95、资本 5。若今天提款 20，现金缺口为 10；不能因此直接判定全部贷款都已亏损。
+
+## 进一步分析
+
+资本是吸收损失的缓冲，流动性是按时付款的能力，两者不能互相替代。持有长久期资产的机构，可能在信用未恶化时就因利率上升出现市值损失；若集中提款迫使出售，未实现损失会转成实际资本压力。
+
+## 理解的边界
+
+这是简化资产负债表。保险适用范围、限额和处置程序按所在地区制度核对，不覆盖所有金融产品。

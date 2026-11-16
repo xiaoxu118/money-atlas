@@ -1,0 +1,55 @@
+---
+{
+  'id': 'macro-data-revision',
+  'slug': 'data-revision',
+  'module': 'macro',
+  'group': 'reading-data',
+  'concepts': ['base-period', 'chart-misread'],
+  'title': '经济数据修订与实时信息集',
+  'navTitle': '数据修订',
+  'summary': '初值、修订值、基期与统计范围改变会影响比较，数据版本也是信息。',
+  'displayOrder': 290,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国劳工统计局：劳动生产率数据修订',
+        'url': 'https://www.bls.gov/osmr/research-papers/2024/pdf/ec240020.pdf',
+      },
+      {
+        'title': '美国劳工统计局：PPI 常见问题',
+        'url': 'https://www.bls.gov/ppi/faqs/questions-and-answers.htm',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['初次样本', '新信息补齐', '方法或基准调整', '形成修订序列']}
+/>
+
+## 机制分析
+
+初次发布常受可用样本限制，后续资料补齐、季节调整或基准修订可能改变读数。研究当时决策时，应使用当时能看到的数据，而不是事后最终值。
+
+## 关键口径与风险分解
+
+| 变化     | 可能原因           | 比较办法       |
+| -------- | ------------------ | -------------- |
+| 数值修订 | 迟报或核实数据     | 记录数据版本   |
+| 更换基期 | 重新设定指数尺度   | 比较可比增长率 |
+| 口径变动 | 覆盖对象或方法改变 | 找回溯可比序列 |
+
+## 情景核对
+
+同一活动指数由基期 100 换为 200，当前值也同比例改写，真实活动没有因此翻倍。
+
+## 进一步分析
+
+回测若使用后来修订的历史序列，却假定当时就能获得，会引入前视偏差。严谨比较应记录数据发布日期和版本；此处的数据时间是研究变量，不是页面更新时间。
+
+## 理解的边界
+
+不能因有修订就否定统计，也不能拼接不同口径画趋势。修订安排按发布机构方法说明核对。

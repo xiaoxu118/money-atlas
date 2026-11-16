@@ -1,0 +1,55 @@
+---
+{
+  'id': 'investing-fraud',
+  'slug': 'fraud',
+  'module': 'investing',
+  'group': 'risk-compliance',
+  'concepts': ['ponzi-scheme', 'illegal-fundraising', 'guaranteed-return'],
+  'title': '投资欺诈的现金流与信息结构识别',
+  'navTitle': '投资欺诈',
+  'summary': '把庞氏、荐股操纵与关系诈骗拆成可核查的资金和信息结构。',
+  'displayOrder': 560,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：庞氏骗局',
+        'url': 'https://www.investor.gov/protect-your-investments/fraud/types-fraud/ponzi-scheme',
+      },
+      {
+        'title': '美国 SEC 投资者教育：投资诈骗类型',
+        'url': 'https://www.investor.gov/protect-your-investments/fraud/types-fraud',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['建立信任', '制造收益或权威表象', '催促转款', '限制提现或继续收费']}
+/>
+
+## 机制分析
+
+骗局可用早期小额兑付建立信任，再以高收益、稀缺名额或追加费用促使转款。庞氏以新资金支付旧投资人，账面持续增长可能不对应真实经营回报。
+
+## 关键口径与风险分解
+
+| 类型     | 关键机制         | 核查方向           |
+| -------- | ---------------- | ------------------ |
+| 庞氏     | 用新钱支付旧回报 | 真实业务现金流     |
+| 荐股操纵 | 先造势再高位出货 | 利益冲突和成交     |
+| 关系诈骗 | 借信任导向假平台 | 主体、收款人与提款 |
+
+## 情景核对
+
+平台显示盈利 30%，却要求再交所谓税费才能提现，不能把屏幕数字当作真实可收回资产，也不应以追加转款来证明其可靠。
+
+## 进一步分析
+
+应把收益证据、资产保管证据与主体登记证据分开核对。合法登记不证明某笔交易真实，小额提现也不能证明资金闭环可持续；交叉验证必须来自相互独立的信息渠道。
+
+## 理解的边界
+
+风险信号不能单独代替法律定性。资料、登记与收益声明要通过独立官方来源核对，注册本身也不代表收益获保证。

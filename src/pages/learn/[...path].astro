@@ -5,10 +5,24 @@ export async function getStaticPaths() {
   return [
     { params: { path: undefined }, props: { target: '/knowledge/' } },
     { params: { path: 'macro' }, props: { target: '/knowledge/macro/' } },
-    ...topics.map((t) => ({
-      params: { path: `macro/${t.data.slug}` },
-      props: { target: `/knowledge/macro/${t.data.slug}/` },
-    })),
+    ...topics
+      .filter(
+        (t) =>
+          t.data.module === 'macro' &&
+          [
+            'money',
+            'settlement',
+            'production',
+            'interest-rates',
+            'inflation',
+            'policy',
+            'case',
+          ].includes(t.data.slug),
+      )
+      .map((t) => ({
+        params: { path: `macro/${t.data.slug}` },
+        props: { target: `/knowledge/macro/${t.data.slug}/` },
+      })),
   ];
 }
 const { target } = Astro.props;

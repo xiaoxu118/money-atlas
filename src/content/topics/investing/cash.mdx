@@ -1,0 +1,55 @@
+---
+{
+  'id': 'investing-cash',
+  'slug': 'cash',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts': ['money-fund', 'liquidity', 'inflation'],
+  'title': '现金管理工具的信用与流动性结构',
+  'navTitle': '现金管理',
+  'summary': '比较支付用途、赎回条件、净值与保障范围，不用低波动代替风险识别。',
+  'displayOrder': 380,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：共同基金',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/mutual-funds-and-exchange-traded-funds-etfs/mutual-funds',
+      },
+      {
+        'title': '美国 SEC 投资者教育：金融资产种类与风险',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['识别法律形式', '看底层期限与信用', '核对赎回安排', '评估可用资金']}
+/>
+
+## 机制分析
+
+货币基金持有短期金融工具，基金份额并非银行存款。现金管理工具的核心区别在于什么时候能用、可能承受什么损失，以及法律权利指向谁。
+
+## 关键口径与风险分解
+
+| 工具     | 通常持有什么     | 需要核对               |
+| -------- | ---------------- | ---------------------- |
+| 现金     | 法定支付工具     | 保管与购买力           |
+| 银行存款 | 对银行的存款债权 | 期限、提取和保险范围   |
+| 货币基金 | 短期货币市场资产 | 净值、赎回、费用与限制 |
+
+## 情景核对
+
+屏幕显示可赎回不代表任何时候都能即时到账；交易日、截止时点和流动性安排会改变实际可用时间。
+
+## 进一步分析
+
+现金管理工具的流动性不是一个常数。资产期限与投资者赎回频率不匹配时，压力可能通过折价卖出、赎回限制或其他安排体现；净值平稳不能替代底层信用与期限检查。
+
+## 理解的边界
+
+不列具体产品或当前收益率。来源中的美国制度不等于其他地区的存款保障或基金规则。

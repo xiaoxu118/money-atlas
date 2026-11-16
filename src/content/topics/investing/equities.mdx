@@ -1,0 +1,55 @@
+---
+{
+  'id': 'investing-equities',
+  'slug': 'equities',
+  'module': 'investing',
+  'group': 'asset-types',
+  'concepts': ['equity', 'dividend', 'earnings', 'pe-ratio'],
+  'title': '股东剩余权益、盈利质量与估值变化',
+  'navTitle': '股票',
+  'summary': '理解剩余所有权、分红、经营利润与估值，区分公司发展和股价回报。',
+  'displayOrder': 410,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：股票与股东权利',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks',
+      },
+      {
+        'title': '美国 SEC 投资者教育：阅读公司年度报告',
+        'url': 'https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['企业经营', '形成利润与现金流', '分配或再投资', '股东权利与市场定价']}
+/>
+
+## 机制分析
+
+普通股通常代表企业的一部分剩余权益，现金分配和清算顺序受公司安排与法律约束。企业利润增长，不保证股价以相同比例增长，因为买入估值也会改变回报。
+
+## 关键口径与风险分解
+
+| 来源     | 对应变化         | 边界               |
+| -------- | ---------------- | ------------------ |
+| 现金分红 | 现金分给股东     | 不是无成本额外财富 |
+| 经营增长 | 未来盈利能力变化 | 利润不等于现金     |
+| 估值变化 | 市场愿付价格变化 | 可能与利润方向相反 |
+
+## 情景核对
+
+每股盈利由 1 增到 1.2，但市盈率由 20 倍降至 15 倍，简化股价由 20 降至 18；盈利增加仍可能伴随股价下降。
+
+## 进一步分析
+
+估值与盈利的分解还要看每股口径：总利润增长可能被新增股本稀释。利润与自由现金流的差异需结合营运资本、资本开支与会计确认，不能只用一项增长率推导股东回报。
+
+## 理解的边界
+
+例子不是估值预测。分红、回购、股权稀释、债务与交易费用需一并考虑，股票可能损失全部本金。

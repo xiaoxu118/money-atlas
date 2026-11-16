@@ -1,0 +1,57 @@
+---
+{
+  'id': 'investing-valuation',
+  'slug': 'valuation',
+  'module': 'investing',
+  'group': 'macro-valuation',
+  'concepts':
+    ['pe-ratio', 'pb-ratio', 'dividend-yield', 'dcf', 'discount-rate'],
+  'title': '估值倍数、现金流折现与假设敏感性',
+  'navTitle': '估值方法',
+  'summary': '估值指标分别比较盈利、账面净资产、分红与未来现金流，没有跨行业通用阈值。',
+  'displayOrder': 630,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：阅读公司年度报告',
+        'url': 'https://www.investor.gov/introduction-investing/getting-started/researching-investments/how-read-10-k',
+      },
+      {
+        'title': '美国 SEC 投资者教育：股票与股东权利',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/investment-products/stocks',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['明确权利与现金流', '选择匹配口径', '检验假设', '比较估值范围']}
+/>
+
+## 机制分析
+
+倍数提供比较尺度，不能脱离盈利质量、资产结构和增长风险。DCF 把未来现金流折回今天，结果会对长期假设和折现率十分敏感。
+
+## 关键口径与风险分解
+
+| 指标   | 简化计算          | 主要局限             |
+| ------ | ----------------- | -------------------- |
+| PE     | 价格 ÷ 每股盈利   | 亏损或周期高点时失真 |
+| PB     | 价格 ÷ 每股净资产 | 资产质量和会计口径   |
+| 股息率 | 每股股息 ÷ 价格   | 分红可能调整         |
+| DCF    | 现金流现值之和    | 远期预测与终值假设   |
+
+## 情景核对
+
+每股盈利 2、价格 20，PE 为 10 倍；若盈利含一次性收益 1，持续盈利口径下可能为 20 倍。便宜与否依赖口径。
+
+## 进一步分析
+
+终值在 DCF 中可能占很大比例，长期增长与折现率的小幅变化都会放大估值区间。企业价值与股权价值还需通过净债务等项目衔接，不能把两者倍数混用。
+
+## 理解的边界
+
+不提供通用买入倍数。股权现金流与企业现金流必须匹配不同折现率和债务处理，不能交叉套算。

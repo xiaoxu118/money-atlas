@@ -1,0 +1,49 @@
+---
+{
+  'id': 'investing-leverage',
+  'slug': 'leverage',
+  'module': 'investing',
+  'group': 'structures',
+  'concepts': ['leverage', 'margin-financing', 'interest-cost', 'liquidation'],
+  'title': '融资杠杆、权益损益与被动平仓',
+  'navTitle': '杠杆',
+  'summary': '借入资金放大资产敞口，债务不会自动随资产下跌而同比减少。',
+  'displayOrder': 510,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：保证金融资账户',
+        'url': 'https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-29',
+      },
+    ],
+}
+---
+
+import TopicVisual from '../../../components/diagrams/TopicVisual.astro';
+
+<TopicVisual kind="leverage" />
+
+## 机制分析
+
+权益等于资产减债务。未计利息时，价格变化先改变资产价值，债务本金暂不变，剩余变化集中到权益；融资成本和强平会进一步影响结果。
+
+## 关键口径与风险分解
+
+| 情景         | 资产价值 | 债务与权益       |
+| ------------ | -------- | ---------------- |
+| 初始         | 100      | 债务 50，权益 50 |
+| 资产上涨 10% | 110      | 债务 50，权益 60 |
+| 资产下跌 10% | 90       | 债务 50，权益 40 |
+
+## 情景核对
+
+初始权益 50，资产下跌 10 使权益损失 20%；若还需支付利息，权益回报更低。杠杆不是只放大盈利的一侧。
+
+## 进一步分析
+
+杠杆倍数会随资产下跌和权益缩水被动上升，即使债务本金不变。若维持要求迫使减仓，随后价格反弹也不能自动修复已卖出的头寸，路径与融资条款因此重要。
+
+## 理解的边界
+
+实际融资还可能有维持保证金和提前平仓要求，损失可超过初始权益。例子不是可接受杠杆倍数建议。

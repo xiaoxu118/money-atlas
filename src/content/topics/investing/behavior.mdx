@@ -1,0 +1,59 @@
+---
+{
+  'id': 'investing-behavior',
+  'slug': 'behavior',
+  'module': 'investing',
+  'group': 'behavior',
+  'concepts':
+    [
+      'loss-aversion',
+      'anchoring',
+      'herding',
+      'disposition-effect',
+      'overconfidence',
+    ],
+  'title': '行为偏差、参照点与交易决策失真',
+  'navTitle': '行为偏差',
+  'summary': '识别损失厌恶、锚定、从众、处置效应与过度自信，观察它们怎样进入决策。',
+  'displayOrder': 600,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：投资者行为偏差',
+        'url': 'https://www.investor.gov/introduction-investing/general-resources/news-alerts/alerts-bulletins/investor-bulletins-72',
+      },
+    ],
+}
+---
+
+import MechanismFlow from '../../../components/diagrams/MechanismFlow.astro';
+
+<MechanismFlow
+  items={['接触信息', '形成参照与情绪', '作出交易', '选择性解释结果']}
+/>
+
+## 机制分析
+
+情绪和参照点会改变人对同一信息的解释。买入成本容易成为锚，但市场不会因为某人的成本回到那个价格；账面盈亏也不是未来价值的充分依据。
+
+## 关键口径与风险分解
+
+| 偏差       | 常见表现               | 可核对的过程       |
+| ---------- | ---------------------- | ------------------ |
+| 损失厌恶   | 为避免承认亏损拖延判断 | 比较继续持有的理由 |
+| 锚定与处置 | 围绕买价决定去留       | 重新看现金流和风险 |
+| 从众       | 把热度当证据           | 查独立数据         |
+| 过度自信   | 只记住成功预测         | 保留完整决策记录   |
+
+## 情景核对
+
+买价 100、现价 80，不意味着从今天看它比另一资产更值得持有，也不意味着必须卖出。应重新评估事实，而非由回本心理单独决定。
+
+## 进一步分析
+
+行为偏差不能仅凭单次亏损事后贴标签。需要看规则是否事前确定、证据是否一致更新，以及同类情景下是否重复偏离；否则复盘本身也可能产生叙事偏差。
+
+## 理解的边界
+
+行为标签用于反思，不是对个人能力的诊断。事后讲得通的故事也可能只是运气，记录过程比只选成功案例更可靠。

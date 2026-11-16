@@ -24,7 +24,7 @@ const topics = await publishedTopics();
         const l = topics.find((l) => l.data.id === id)!;
         return (
           <li>
-            <a href={topicHref(l.data.slug)}>{l.data.title} →</a>
+            <a href={topicHref(l.data)}>{l.data.title} →</a>
           </li>
         );
       })}

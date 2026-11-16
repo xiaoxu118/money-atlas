@@ -1,0 +1,50 @@
+---
+{
+  'id': 'investing-costs',
+  'slug': 'costs',
+  'module': 'investing',
+  'group': 'investment-basics',
+  'concepts': ['fee', 'expense-ratio', 'slippage', 'tax'],
+  'title': '费用结构与长期净回报的复合效应',
+  'navTitle': '费用影响',
+  'summary': '区分一次性费用、持续费用、点差、滑点和税，并明确示例扣费时点。',
+  'displayOrder': 350,
+  'status': 'published',
+  'sources':
+    [
+      {
+        'title': '美国 SEC 投资者教育：基金费用与开支',
+        'url': 'https://www.investor.gov/introduction-investing/investing-basics/glossary/mutual-fund-fees-and-expenses',
+      },
+    ],
+}
+---
+
+import TopicVisual from '../../../components/diagrams/TopicVisual.astro';
+
+<TopicVisual kind="costs" />
+
+## 机制分析
+
+持续费用不仅减少当期净收益，也减少以后参与增长的本金。公开净值可能已经扣除部分费用，比较时要避免再次扣减同一项目。
+
+## 关键口径与风险分解
+
+| 成本       | 发生方式               | 核对位置         |
+| ---------- | ---------------------- | ---------------- |
+| 一次性收费 | 申购、赎回或服务收费   | 合同与费用表     |
+| 持续费用   | 按资产或其他基准计提   | 费用率与净值说明 |
+| 交易摩擦   | 点差、滑点和佣金       | 实际成交和报价   |
+| 税费       | 依身份、地区和资产而异 | 税务与交易规则   |
+
+## 情景核对
+
+初始 10,000 元，假设每年先增长 5% 再按资产扣 1%，十年后为 10,000 × (1.05 × 0.99)¹⁰；不能把这种时点约定与所有产品净值算法混用。
+
+## 进一步分析
+
+持续费用的计提基准可能是净资产，也可能受融资后的总资产影响。业绩报酬还可能有门槛、高水位和结算周期；比较毛收益时要把这些结构折回到投资者可获得的净现金流。
+
+## 理解的边界
+
+增长率和费率均为教学假设，不含额外现金流。税不适用统一税率，净值口径必须先核对。
