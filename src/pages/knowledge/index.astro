@@ -1,16 +1,18 @@
 ---
-import SiteLayout from '../../layouts/SiteLayout.astro';
-import TopicList from '../../components/navigation/TopicList.astro';
+const target = '/knowledge/overview/';
 ---
 
-<SiteLayout title="知识导航">
-  <section class="page-heading">
-    <span class="eyebrow">ECONOMICS / EXPLAINED</span>
-    <h1>知识导航</h1>
-    <p class="lead">
-      按分析领域直接进入图解。金融原理与投资共 64
-      个主题，按机制、口径与风险组织。
-    </p>
-  </section>
-  <TopicList />
-</SiteLayout>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>内容目录</title>
+  </head>
+  <body>
+    <a href={target}>进入内容目录</a>
+    <script is:inline define:vars={{ target }}>
+      location.replace(target);
+    </script>
+  </body>
+</html>

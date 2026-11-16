@@ -58,15 +58,19 @@ test('页面无更新时间、实验入口或操作控件，表头正文对齐',
   }
 });
 
-test('概念筛选与相关主题可直接访问', async ({ page }) => {
-  await page.goto('/concepts/');
+test('概念在正文中查询，旧概念详情直达正文解释', async ({ page }) => {
+  await page.goto('/knowledge/investing/invest-vs-speculation/');
+  await page.getByRole('link', { name: '概念速查', exact: true }).click();
+  await expect(page.locator('#concepts')).toHaveAttribute('open', '');
   await page.getByRole('searchbox').fill('净财富');
   await expect(page.locator('[data-concept]:visible')).toHaveCount(1);
-  await page.getByRole('link', { name: /净财富/ }).click();
-  await page
-    .getByRole('link', { name: '商业银行货币创造与资产负债表扩张 →' })
-    .click();
-  await expect(page).toHaveURL(/knowledge\/macro\/money\/$/);
+  await expect(page.locator('[data-concept]:visible')).toContainText(
+    '资产减去负债',
+  );
+  await expect(page).toHaveURL(/investing\/invest-vs-speculation\/#concepts$/);
+  await page.goto('/concepts/net-wealth/');
+  await expect(page).toHaveURL(/macro\/money\/#concept-net-wealth$/);
+  await expect(page.locator('#concept-net-wealth')).toBeVisible();
 });
 
 test('旧入口与锚点指向静态知识图解', async ({ page }) => {
@@ -88,25 +92,30 @@ test('旧入口与锚点指向静态知识图解', async ({ page }) => {
   await page.goto('/learn/macro/money/#money-creation');
   await expect(page).toHaveURL(/knowledge\/macro\/money\/#money-creation$/);
   await page.goto('/labs/');
-  await expect(page).toHaveURL(/\/knowledge\/$/);
+  await expect(page).toHaveURL(/\/knowledge\/macro\/money\/$/);
 });
 
-test('知识导航紧凑列出64个主题，点击后显示独立图解正文', async ({ page }) => {
-  await page.goto('/knowledge/');
-  await expect(page.locator('.directory-group li a')).toHaveCount(64);
-  await expect(page.locator('figure')).toHaveCount(0);
+test('首页分类直接进入带目录正文，旧列表入口自动跳转', async ({ page }) => {
+  await page.goto('/');
   await page
-    .getByRole('link', {
-      name: '商业银行货币创造与资产负债表扩张',
-      exact: true,
-    })
+    .getByRole('link', { name: '对外：汇率与国际收支', exact: true })
     .click();
-  await expect(page).toHaveURL(/knowledge\/macro\/money\/$/);
-  await expect(page.locator('.directory-group')).toHaveCount(0);
+  await expect(page).toHaveURL(/knowledge\/macro\/exchange-rate\/$/);
   await expect(
-    page.locator('.prose > figure').first().getByRole('img'),
-  ).toBeVisible();
+    page.locator('.reading-sidebar .tree-group[open] summary'),
+  ).toHaveText('对外：汇率与国际收支');
+  await expect(page.locator('.directory-group')).toHaveCount(0);
+  await page.goto('/knowledge/');
+  await expect(page).toHaveURL(/knowledge\/overview\/$/);
+  await expect(page.locator('.overview-page')).toHaveText('概览');
+  await page.goto('/knowledge/macro/#international');
+  await expect(page).toHaveURL(/knowledge\/macro\/exchange-rate\/$/);
+  await page.goto('/knowledge/investing/');
+  await expect(page).toHaveURL(
+    /knowledge\/investing\/invest-vs-speculation\/$/,
+  );
 });
+
 test('全部主题先有可读图片，再有说明，两个模块可直接访问', async ({ page }) => {
   const { topicPlan } = await import('../../src/data/content-map');
   for (const width of [1440, 375]) {
@@ -166,9 +175,7 @@ test('三级侧栏突出当前位置，分组可以展开并跳到投资主题',
     .locator('.tree-group')
     .filter({ has: page.locator(':scope > summary', { hasText: '资产类别' }) });
   await assets.locator(':scope > summary').click();
-  await assets
-    .getByRole('link', { name: '期权', exact: true })
-    .click();
+  await assets.getByRole('link', { name: '期权', exact: true }).click();
   await expect(page).toHaveURL(/knowledge\/investing\/options\/$/);
   await page.setViewportSize({ width: 375, height: 812 });
   await expect(page.locator('.mobile-content-tree')).toBeVisible();

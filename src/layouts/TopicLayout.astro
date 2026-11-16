@@ -2,8 +2,9 @@
 import type { CollectionEntry } from 'astro:content';
 import SiteLayout from './SiteLayout.astro';
 import ContentNav from '../components/navigation/ContentNav.astro';
+import ConceptNotes from '../components/navigation/ConceptNotes.astro';
 import { modules, topicGroups, topicRelations } from '../data/content-map';
-import { topicHref } from '../data/topic-links';
+import { topicHref, readingEntryHref } from '../data/topic-links';
 interface Props {
   topic: CollectionEntry<'topics'>;
   topics: CollectionEntry<'topics'>[];
@@ -42,15 +43,16 @@ const related = topics
       <article class="topic topic-detail">
         <header class="topic-heading">
           <nav class="breadcrumbs" aria-label="当前位置">
-            <a href="/knowledge/">知识导航</a>
+            <a href="/">首页</a>
             <span aria-hidden="true">/</span>
-            <a href={`/knowledge/${data.module}/`}>{module.title}</a>
+            <a href={readingEntryHref(data.module)}>{module.title}</a>
             <span aria-hidden="true">/</span>
-            <a href={`/knowledge/${data.module}/#${group.id}`}>{group.title}</a>
+            <a href={readingEntryHref(data.module, group.id)}>{group.title}</a>
           </nav>
           <h1>{data.title}</h1>
           <p class="lead">{data.summary}</p>
         </header>
+        <ConceptNotes related={data.concepts} />
         <div class="prose">
           <slot />
         </div>
@@ -86,3 +88,22 @@ const related = topics
     </div>
   </div>
 </SiteLayout>
+
+<script>
+  // Keep table semantics and column comparisons intact on narrow screens.
+  document
+    .querySelectorAll<HTMLTableElement>('.prose table')
+    .forEach((table) => {
+      if (table.parentElement?.classList.contains('table-scroll')) return;
+      const container = document.createElement('div');
+      container.className = 'table-scroll';
+      container.tabIndex = 0;
+      container.setAttribute('role', 'region');
+      container.setAttribute(
+        'aria-label',
+        `${table.caption?.textContent?.trim() || '数据表格'}，窄屏可左右滚动`,
+      );
+      table.before(container);
+      container.append(table);
+    });
+</script>

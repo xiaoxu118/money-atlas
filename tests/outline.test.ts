@@ -9,7 +9,7 @@ const entries = ['macro', 'investing'].flatMap((module) =>
     .filter((f) => f.endsWith('.mdx'))
     .map((file) => {
       const text = readFileSync(`src/content/topics/${module}/${file}`, 'utf8');
-      const [, front, body] = text.split(/\n?---\n/);
+      const [, front, body] = text.replace(/\r\n/g, '\n').split(/\n?---\n/);
       return { data: parse(front!), body: body! };
     }),
 );

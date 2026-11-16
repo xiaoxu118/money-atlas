@@ -1,5 +1,7 @@
 ---
 import '../styles/global.css';
+import '../styles/editorial.css';
+import PageEditor from '../components/PageEditor.astro';
 interface Props {
   title: string;
   description?: string;
@@ -30,22 +32,24 @@ const canonical = Astro.site
     </a>
     <header class="site-header">
       <a class="brand" href="/">
-        <span>◈ 钱图</span>
+        <span class="brand-mark">
+          钱图<span aria-hidden="true">.</span>
+        </span>
         <span class="brand-en" lang="en">
           Money Atlas
         </span>
       </a>
       <nav aria-label="主导航">
         <a
-          href="/knowledge/"
+          href="/knowledge/overview/"
           aria-current={
-            Astro.url.pathname === '/knowledge/' ? 'page' : undefined
+            Astro.url.pathname === '/knowledge/overview/' ? 'page' : undefined
           }
         >
-          知识图解
+          内容目录
         </a>
         <a
-          href="/knowledge/macro/"
+          href="/knowledge/macro/money/"
           aria-current={
             Astro.url.pathname.startsWith('/knowledge/macro/')
               ? 'page'
@@ -55,7 +59,7 @@ const canonical = Astro.site
           金融原理
         </a>
         <a
-          href="/knowledge/investing/"
+          href="/knowledge/investing/invest-vs-speculation/"
           aria-current={
             Astro.url.pathname.startsWith('/knowledge/investing/')
               ? 'page'
@@ -65,12 +69,16 @@ const canonical = Astro.site
           投资
         </a>
         <a
-          href="/concepts/"
+          href={
+            wide && Astro.url.pathname !== '/knowledge/overview/'
+              ? '#concepts'
+              : '/knowledge/macro/money/#concepts'
+          }
           aria-current={
             Astro.url.pathname.startsWith('/concepts/') ? 'page' : undefined
           }
         >
-          概念索引
+          概念速查
         </a>
       </nav>
     </header>
@@ -78,8 +86,9 @@ const canonical = Astro.site
       <slot />
     </main>
     <footer class="site-footer">
-      <span>钱图 Money Atlas / 先理解，再做判断</span>
-      <span>全部数字为简化示例</span>
+      <span>钱图 / MONEY ATLAS</span>
+      <span>金融机制与投资分析 · 图中数字均为简化情景</span>
     </footer>
+    <PageEditor />
   </body>
 </html>

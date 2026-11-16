@@ -1,0 +1,29 @@
+---
+import SiteLayout from '../../layouts/SiteLayout.astro';
+import ContentNav from '../../components/navigation/ContentNav.astro';
+import { publishedTopics } from '../../lib/topics';
+const topics = await publishedTopics();
+---
+
+<SiteLayout title="概览" wide>
+  <div class="reading-layout">
+    <aside class="reading-sidebar">
+      <h2>内容目录</h2>
+      <ContentNav topics={topics} />
+    </aside>
+    <div class="reading-main">
+      <details class="mobile-content-tree" open>
+        <summary>内容目录</summary>
+        <ContentNav topics={topics} />
+      </details>
+      <article
+        class="topic topic-detail overview-page"
+        aria-labelledby="overview-title"
+      >
+        <header class="topic-heading">
+          <h1 id="overview-title">概览</h1>
+        </header>
+      </article>
+    </div>
+  </div>
+</SiteLayout>

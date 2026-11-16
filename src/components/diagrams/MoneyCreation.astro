@@ -20,7 +20,7 @@ const stages = [
     <span>员工</span>
   </div>
   <p>以下仅观察同一家银行内这笔新增业务。每一阶段均列出余额，可直接对照。</p>
-  <table>
+  <table class="ledger-table ledger-bank">
     <caption>银行账目，单位：元</caption>
     <thead>
       <tr>
@@ -35,14 +35,14 @@ const stages = [
         return (
           <tr>
             <th scope="row">{stage}</th>
-            <td>{amount(ledger.bankLoan)}</td>
-            <td>{amount(ledger.bankDeposits)}</td>
+            <td data-label="贷款资产">{amount(ledger.bankLoan)}</td>
+            <td data-label="存款负债合计">{amount(ledger.bankDeposits)}</td>
           </tr>
         );
       })}
     </tbody>
   </table>
-  <table>
+  <table class="ledger-table ledger-customers">
     <caption>客户账目，单位：元</caption>
     <thead>
       <tr>
@@ -58,9 +58,9 @@ const stages = [
         return (
           <tr>
             <th scope="row">{stage}</th>
-            <td>{amount(ledger.shopDeposit)}</td>
-            <td>{amount(ledger.employeeDeposit)}</td>
-            <td>{amount(ledger.shopDebt)}</td>
+            <td data-label="面包店存款">{amount(ledger.shopDeposit)}</td>
+            <td data-label="员工存款">{amount(ledger.employeeDeposit)}</td>
+            <td data-label="面包店债务">{amount(ledger.shopDebt)}</td>
           </tr>
         );
       })}

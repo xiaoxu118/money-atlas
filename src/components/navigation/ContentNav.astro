@@ -4,27 +4,34 @@ import { modules, topicGroups } from '../../data/content-map';
 import { topicHref } from '../../data/topic-links';
 interface Props {
   topics: CollectionEntry<'topics'>[];
-  active: CollectionEntry<'topics'>;
+  active?: CollectionEntry<'topics'>;
 }
 const { topics, active } = Astro.props;
 ---
 
 <nav class="content-tree" aria-label="知识分层目录">
+  <a
+    class="directory-overview"
+    href="/knowledge/overview/"
+    aria-current={!active ? 'page' : undefined}
+  >
+    概览
+  </a>
   {modules.map((module) => (
-    <details class="tree-module" open={module.id === active.data.module}>
+    <details
+      class="tree-module"
+      open={!active || module.id === active.data.module}
+    >
       <summary>
         <span>{module.title}</span>
         <small>
           {topics.filter((t) => t.data.module === module.id).length}
         </small>
       </summary>
-      <a class="tree-overview" href={`/knowledge/${module.id}/`}>
-        板块概览
-      </a>
       {topicGroups
         .filter((group) => group.module === module.id)
         .map((group) => (
-          <details class="tree-group" open={group.id === active.data.group}>
+          <details class="tree-group" open={group.id === active?.data.group}>
             <summary>{group.title}</summary>
             <ul>
               {topics
@@ -34,7 +41,7 @@ const { topics, active } = Astro.props;
                     <a
                       href={topicHref(topic.data)}
                       aria-current={
-                        topic.data.id === active.data.id ? 'page' : undefined
+                        topic.data.id === active?.data.id ? 'page' : undefined
                       }
                     >
                       {topic.data.navTitle}

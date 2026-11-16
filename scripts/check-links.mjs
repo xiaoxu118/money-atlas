@@ -9,7 +9,7 @@ async function walk(dir) {
     )
   ).flat();
 }
-const files = await walk('dist');
+const files = (await walk('dist')).map((file) => file.replaceAll('\\', '/'));
 const pages = files.filter(
   (f) => f.endsWith('.html') && !f.includes('/archive/'),
 );
@@ -18,7 +18,11 @@ const contents = new Map(
 );
 let count = 0;
 for (const [file, html] of contents) {
-  const path = '/' + relative('dist', file).replace(/index\.html$/, '');
+  const path =
+    '/' +
+    relative('dist', file)
+      .replaceAll('\\', '/')
+      .replace(/index\.html$/, '');
   for (const match of html.matchAll(/href="([^"]+)"/g)) {
     const href = match[1];
     if (/^(https?:|mailto:|tel:)/.test(href)) continue;

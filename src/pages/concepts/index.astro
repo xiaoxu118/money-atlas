@@ -1,43 +1,18 @@
 ---
-import SiteLayout from '../../layouts/SiteLayout.astro';
-import { concepts } from '../../data/concepts';
+const target = '/knowledge/macro/money/#concepts';
 ---
 
-<SiteLayout title="概念索引">
-  <section class="page-heading">
-    <span class="eyebrow">BUILD YOUR VOCABULARY</span>
-    <h1>把概念连起来。</h1>
-    <p class="lead">简短定义帮助定位问题，关联主题解释来龙去脉。</p>
-    <label for="concept-search">筛选概念名称与定义</label>
-    <input
-      id="concept-search"
-      type="search"
-      placeholder="试试：存款、利率、购买力"
-    />
-    <p id="search-status" role="status"></p>
-  </section>
-  <div class="card-grid">
-    {concepts.map((c) => (
-      <a class="index-card" data-concept href={`/concepts/${c.id}/`}>
-        <h2>{c.title}</h2>
-        <p>{c.summary}</p>
-        <span>理解这个概念 →</span>
-      </a>
-    ))}
-  </div>
-</SiteLayout>
-<script>
-  const search = document.querySelector<HTMLInputElement>('#concept-search')!;
-  const cards = Array.from(
-    document.querySelectorAll<HTMLElement>('[data-concept]'),
-  );
-  search.addEventListener('input', () => {
-    let visible = 0;
-    for (const card of cards) {
-      card.hidden = !card.textContent?.includes(search.value.trim());
-      if (!card.hidden) visible++;
-    }
-    document.querySelector('#search-status')!.textContent =
-      `${visible} 个匹配概念`;
-  });
-</script>
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>概念已并入正文</title>
+  </head>
+  <body>
+    <a href={target}>在正文中查看概念</a>
+    <script is:inline define:vars={{ target }}>
+      location.replace(target);
+    </script>
+  </body>
+</html>

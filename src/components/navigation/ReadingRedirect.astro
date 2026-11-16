@@ -1,0 +1,30 @@
+---
+import { topicGroups, type TopicModule } from '../../data/content-map';
+import { readingEntryHref } from '../../data/topic-links';
+interface Props {
+  module?: TopicModule;
+}
+const { module = 'macro' } = Astro.props;
+const target = readingEntryHref(module);
+const groups = Object.fromEntries(
+  topicGroups
+    .filter((group) => group.module === module)
+    .map((group) => [group.id, readingEntryHref(module, group.id)]),
+);
+---
+
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta name="robots" content="noindex" />
+    <title>进入内容目录</title>
+  </head>
+  <body>
+    <a href={target}>进入内容目录与正文</a>
+    <script is:inline define:vars={{ target, groups }}>
+      location.replace(groups[location.hash.slice(1)] || target);
+    </script>
+  </body>
+</html>

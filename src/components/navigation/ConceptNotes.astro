@@ -1,0 +1,71 @@
+---
+import { concepts } from '../../data/concepts';
+interface Props {
+  related: string[];
+}
+const { related } = Astro.props;
+---
+
+<details class="concept-notes" id="concepts">
+  <summary>概念速查 · 在本页查看解释</summary>
+  <div class="concept-notes-body">
+    <label for="concept-search">搜索概念名称与解释</label>
+    <input
+      id="concept-search"
+      type="search"
+      placeholder="例如：净财富、利率、保证金"
+    />
+    <p class="meta" role="status" data-concept-status>
+      当前文章涉及的概念
+    </p>
+    <dl>
+      {concepts.map((concept) => (
+        <div
+          id={`concept-${concept.id}`}
+          data-concept
+          data-related={related.includes(concept.id) ? 'true' : 'false'}
+          hidden={!related.includes(concept.id)}
+        >
+          <dt>{concept.title}</dt>
+          <dd>{concept.summary}</dd>
+        </div>
+      ))}
+    </dl>
+  </div>
+</details>
+
+<script>
+  const panel = document.querySelector<HTMLDetailsElement>('.concept-notes');
+  if (panel) {
+    const search = panel.querySelector<HTMLInputElement>('input')!;
+    const entries = [...panel.querySelectorAll<HTMLElement>('[data-concept]')];
+    const status = panel.querySelector<HTMLElement>('[data-concept-status]')!;
+    search.addEventListener('input', () => {
+      const query = search.value.trim().toLocaleLowerCase();
+      let count = 0;
+      entries.forEach((entry) => {
+        entry.hidden = query
+          ? !entry.textContent?.toLocaleLowerCase().includes(query)
+          : entry.dataset.related !== 'true';
+        if (!entry.hidden) count++;
+      });
+      status.textContent = query
+        ? count
+          ? `${count} 个匹配概念`
+          : '没有匹配的概念，请尝试其他关键词。'
+        : '当前文章涉及的概念';
+    });
+    const revealAnchor = () => {
+      const id = location.hash.slice(1);
+      if (id === 'concepts') panel.open = true;
+      const entry = entries.find((entry) => entry.id === id);
+      if (entry) {
+        panel.open = true;
+        entry.hidden = false;
+        entry.scrollIntoView({ block: 'center' });
+      }
+    };
+    revealAnchor();
+    window.addEventListener('hashchange', revealAnchor);
+  }
+</script>

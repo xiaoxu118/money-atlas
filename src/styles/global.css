@@ -158,7 +158,7 @@ nav a[aria-current='page'] {
 }
 .hero {
   display: grid;
-  grid-template-columns: 1.1fr 1fr;
+  grid-template-columns: 1fr;
   gap: 65px;
   align-items: center;
   padding: 85px 0;
@@ -679,7 +679,7 @@ tbody th {
 }
 .directory-group li {
   margin: 0;
-  border-bottom: 1px solid var(--line);
+  border: 0;
 }
 .directory-group li a {
   display: flex;
@@ -958,13 +958,14 @@ tbody th {
   border-radius: 0 7px 7px 0;
 }
 .tree-group a:hover {
-  background: var(--soft);
+  color: var(--accent);
+  background: transparent;
 }
 .tree-group a[aria-current='page'],
 .tree-group a[aria-current='page']:hover {
   text-decoration: none;
   border-left-color: var(--accent);
-  background: var(--highlight);
+  background: transparent;
   font-weight: 700;
 }
 .reading-main {

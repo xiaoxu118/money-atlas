@@ -3,8 +3,8 @@ import { publishedTopics } from '../../lib/topics';
 export async function getStaticPaths() {
   const topics = await publishedTopics();
   return [
-    { params: { path: undefined }, props: { target: '/knowledge/' } },
-    { params: { path: 'macro' }, props: { target: '/knowledge/macro/' } },
+    { params: { path: undefined }, props: { target: '/knowledge/macro/money/' } },
+    { params: { path: 'macro' }, props: { target: '/knowledge/macro/money/' } },
     ...topics
       .filter(
         (t) =>

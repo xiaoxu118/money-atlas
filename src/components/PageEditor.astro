@@ -1,0 +1,62 @@
+{import.meta.env.DEV && (
+  <aside id="page-editor" aria-label="页面编辑">
+    <span role="status" aria-live="polite">
+      可直接编辑本页文字
+    </span>
+    <button type="button" data-edit>
+      编辑页面
+    </button>
+    <button type="button" data-save hidden>
+      保存
+    </button>
+    <button type="button" data-cancel hidden>
+      取消
+    </button>
+  </aside>
+)}
+
+<script>
+  import { setupPageEditor } from '../lib/page-editor';
+  setupPageEditor();
+</script>
+
+<style is:global>
+  #page-editor {
+    position: relative;
+    z-index: 1000;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    align-items: center;
+    max-width: calc(100vw - 40px);
+    width: fit-content;
+    margin: 24px 20px 24px auto;
+    padding: 12px;
+    background: #fff;
+    color: var(--ink);
+    border: 1px solid var(--line);
+    border-radius: 0;
+    box-shadow: 0 4px 24px #0002;
+    font-size: 14px;
+  }
+  #page-editor button {
+    cursor: pointer;
+    padding: 6px 12px;
+    background: var(--ink);
+    color: white;
+    border: 0;
+    border-radius: 0;
+  }
+  #page-editor [hidden] {
+    display: none;
+  }
+  [data-editable-text] {
+    outline: 1px dashed #638c79;
+    outline-offset: 3px;
+    white-space: pre-wrap;
+  }
+  [data-editable-text]:focus {
+    outline: 2px solid #286e53;
+    background: #eef8f1;
+  }
+</style>

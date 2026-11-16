@@ -1,27 +1,38 @@
 ---
 import { modules, topicGroups } from '../../data/content-map';
 import { publishedTopics } from '../../lib/topics';
+import { readingEntryHref } from '../../data/topic-links';
 const topics = await publishedTopics();
 ---
 
 <div class="module-portals">
-  {modules.map((module) => (
+  {modules.map((module, index) => (
     <section class="module-portal">
-      <h2>
-        <a href={`/knowledge/${module.id}/`}>{module.title} →</a>
-      </h2>
-      <p>{module.summary}</p>
+      <span class="portal-number" aria-hidden="true">
+        0{index + 1}
+      </span>
+      <div class="portal-title">
+        <span class="eyebrow">
+          {module.id === 'macro' ? '原理篇 / ECONOMICS' : '投资篇 / INVESTING'}
+        </span>
+        <h2>
+          <a href={readingEntryHref(module.id)}>
+            {module.title} <span aria-hidden="true">↗</span>
+          </a>
+        </h2>
+        <p>{module.summary}</p>
+        <span class="meta">
+          {topics.filter((topic) => topic.data.module === module.id).length}{' '}
+          个主题
+        </span>
+      </div>
       <div class="group-links">
         {topicGroups
           .filter((group) => group.module === module.id)
           .map((group) => (
-            <a href={`/knowledge/${module.id}/#${group.id}`}>{group.title}</a>
+            <a href={readingEntryHref(module.id, group.id)}>{group.title}</a>
           ))}
       </div>
-      <span class="meta">
-        {topics.filter((topic) => topic.data.module === module.id).length}{' '}
-        个独立主题
-      </span>
     </section>
   ))}
 </div>
